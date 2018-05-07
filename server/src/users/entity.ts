@@ -12,11 +12,7 @@ export default class User extends BaseEntity {
 
   @IsString()
   @Column('text',  {default: null})
-  firstName: string
-
-  @IsString()
-  @Column('text',  {default: null})
-  lastName: string
+  userName: string
 
   @IsEmail()
   @Column('text', {nullable: false})
