@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {getClasses} from '../../actions/classes'
+import NewClassForm from './NewClassForm'
 import Paper from 'material-ui/Paper'
 
 class Homepage extends PureComponent {
@@ -15,6 +16,7 @@ class Homepage extends PureComponent {
         return(
             <Paper className="outer-paper">
             <h1>Homepage</h1>
+            <NewClassForm />
             { classes.map(batch =>
                 <div className= "batchContainer">
                 <h2>Batch {batch.batchNum}</h2>

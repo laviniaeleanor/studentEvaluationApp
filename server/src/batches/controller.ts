@@ -11,7 +11,7 @@ export default class BatchController {
     ) {
         const entity = await batch.save()
 
-        return { entity }
+        return entity
     }
 
     //requests all classes

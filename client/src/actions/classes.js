@@ -4,6 +4,7 @@ import * as request from 'superagent'
 const baseUrl = 'http://localhost:4001'
 
 export const GET_CLASSES = 'GET_CLASSES'
+export const ADD_CLASS = 'ADD_CLASS'
 
 export const getClasses = () => (dispatch) => {
 	request
@@ -13,6 +14,19 @@ export const getClasses = () => (dispatch) => {
         type: GET_CLASSES,
 		payload: result.body
       })
+    })
+    .catch(err => console.error(err))
+}
+
+export const addClass = (batch) => (dispatch) => {
+    request
+    .post(`${baseUrl}/batches`)
+    .send(batch)
+    .then(result => {
+        dispatch({
+            type: ADD_CLASS,
+            payload: result.body
+        })
     })
     .catch(err => console.error(err))
 }
