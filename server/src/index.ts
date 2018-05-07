@@ -4,6 +4,7 @@ import setupDb from './db'
 import UserController from './users/controller'
 import LoginController from './logins/controller'
 import BatchController from './batches/controller';
+import StudentController from './students/controller';
 
 
 const port = process.env.PORT || 4001
@@ -13,7 +14,8 @@ const app = createKoaServer({
   controllers: [
     UserController,
     LoginController,
-    BatchController
+    BatchController,
+    StudentController
     ]
 })
 
