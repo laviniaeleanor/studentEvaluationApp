@@ -11,7 +11,7 @@ export default class StudentController {
     ) {
         const entity = await student.save()
 
-        return { entity }
+        return entity
     }
 
     //requests all students by class

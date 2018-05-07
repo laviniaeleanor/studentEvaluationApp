@@ -11,7 +11,7 @@ export default class EvaluationController {
     ) {
         const entity = await evaluation.save()
 
-        return { entity }
+        return entity 
     }
 
     //requests all evaluations by class
