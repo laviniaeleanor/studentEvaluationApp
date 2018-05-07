@@ -1,26 +1,26 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import {getClasses} from '../../actions/classes'
+import {getBatches} from '../../actions/batches'
 import {Link} from 'react-router-dom'
-import NewClassForm from './NewClassForm'
+import NewBatchForm from './NewBatchForm'
 import Paper from 'material-ui/Paper'
 
 class Homepage extends PureComponent {
 
     componentWillMount(){
-        this.props.getClasses()
+        this.props.getBatches()
     }
 
     render(){
-        const {classes} = this.props
+        const {batches} = this.props
 
         return(
             <Paper className="outer-paper">
             <h1>Homepage</h1>
-            <NewClassForm />
-            { classes.map(batch =>
+            <NewBatchForm />
+            { batches.map(batch =>
                 <div className= "batchContainer">
-                <Link to={`/classes/${batch.id}`}><h2>Batch {batch.batchNum}</h2></Link>
+                <Link to={`/batches/${batch.id}`}><h2>Batch {batch.batchNum}</h2></Link>
                 </div>
             )}
             </Paper>
@@ -29,7 +29,7 @@ class Homepage extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-    classes: state.classes
+    batches: state.batches
 })
 
-export default connect (mapStateToProps, {getClasses})(Homepage)
+export default connect (mapStateToProps, {getBatches})(Homepage)

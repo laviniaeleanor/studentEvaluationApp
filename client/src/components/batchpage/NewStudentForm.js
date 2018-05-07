@@ -2,15 +2,16 @@ import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField'
-import {addClass} from '../../actions/classes'
+import {addStudent} from '../../actions/batches'
 
 
-class NewClassForm extends PureComponent {
+class NewStudentForm extends PureComponent {
+
     state = {}
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.addClass(this.state)
+        this.props.addStudent(this.state)
     }
 
 
@@ -18,7 +19,8 @@ class NewClassForm extends PureComponent {
         const {name, value} = e.target
 
         this.setState({
-          [name] : value
+            batch: this.props.batch.id,
+            [name] : value
         })
       };
 
@@ -27,33 +29,26 @@ class NewClassForm extends PureComponent {
         return(
             <form onSubmit={this.handleSubmit}>
                 <TextField
-                    id='batch'
-                    name='batchNum'
-                    label='Batch Number'
-                    value={this.state.batchNum || ''}
+                    id='name'
+                    name='name'
+                    label='Student Name'
+                    value={this.state.name || ''}
                     onChange={this.handleChange}
                 />
                 <TextField
-                  id='startDate'
-                  name='start'
-                  label='Start Date'
-                  value={this.state.start || ''}
+                  id='picture'
+                  name='picture'
+                  label='Add a picture'
+                  value={this.state.picture || ''}
                   onChange={this.handleChange}
                   />
-                <TextField
-                    id='endDate'
-                    name='end'
-                    label='End Date'
-                    value={this.state.end || ''}
-                    onChange={this.handleChange}
-                />
                 <Button
                     type='submit'
                     color="secondary"
                     variant="raised"
-                    className="create-quiz"
+                    className="addStudent"
                 >
-                    Create Quiz
+                    Add Student
                 </Button>
             </form>
         )
@@ -63,8 +58,8 @@ class NewClassForm extends PureComponent {
 
 const mapStateToProps = function (state) {
 	return {
-        classes: state.classes
+        batch: state.batch
 	}
 }
 
-export default connect(mapStateToProps, {addClass})(NewClassForm)
+export default connect(mapStateToProps, {addStudent})(NewStudentForm)
