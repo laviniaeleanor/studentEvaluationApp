@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField'
 import {addClass} from '../../actions/classes'
-import Datepicker from './Datepicker'
 
 
 class NewClassForm extends PureComponent {

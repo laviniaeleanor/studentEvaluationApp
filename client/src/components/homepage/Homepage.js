@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {getClasses} from '../../actions/classes'
+import {Link} from 'react-router-dom'
 import NewClassForm from './NewClassForm'
 import Paper from 'material-ui/Paper'
 
@@ -19,7 +20,7 @@ class Homepage extends PureComponent {
             <NewClassForm />
             { classes.map(batch =>
                 <div className= "batchContainer">
-                <h2>Batch {batch.batchNum}</h2>
+                <Link to={`/classes/${batch.id}`}><h2>Batch {batch.batchNum}</h2></Link>
                 </div>
             )}
             </Paper>
