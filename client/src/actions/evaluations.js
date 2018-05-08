@@ -8,7 +8,7 @@ export const ADD_EVALUATION = 'ADD_EVALUATION'
 
 export const getEvaluations = (studentId) => (dispatch) => {
 	request
-	.get(`${baseUrl}/batches/${studentId}`)
+	.get(`${baseUrl}/studentevaluations/${studentId}`)
     .then(result => {
       dispatch({
         type: GET_EVALUATIONS,
