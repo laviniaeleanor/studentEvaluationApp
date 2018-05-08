@@ -9,3 +9,11 @@ describe('calculatePercentages', () => {
     expect(calculatePercentages(test)).toEqual({ green: 20, yellow: 60, red: 20 })
   })
 })
+
+describe('getRandomStudent', () => {
+  const test = [{name: 'a', evaluation : 'green'},{name: 'b', evaluation : 'yellow'},{name: 'c', evaluation : 'yellow'},{name: 'd', evaluation : 'yellow'},{name: 'e', evaluation : 'red'}]
+
+  it('returns a defined', () => {
+    expect(getRandomStudent(test)).toBeDefined()
+  })
+})
