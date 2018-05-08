@@ -1,7 +1,6 @@
-const test = [{name: 'a', evaluation : 'green'},{name: 'b', evaluation : 'yellow'},{name: 'c', evaluation : 'yellow'},{name: 'd', evaluation : 'yellow'},{name: 'e', evaluation : 'red'}]
+ const test = [{name: 'a', evaluation : 'green'},{name: 'b', evaluation : 'yellow'},{name: 'c', evaluation : 'yellow'},{name: 'd', evaluation : 'yellow'},{name: 'e', evaluation : 'red'}]
 
-
-function calculatePercentages(arrayOfObjects) {
+export function calculatePercentages(arrayOfObjects) {
     const total = arrayOfObjects.length
     const green = arrayOfObjects.filter(object => object.evaluation === 'green').length
     const yellow = arrayOfObjects.filter(object => object.evaluation === 'yellow').length
@@ -19,22 +18,22 @@ function calculatePercentages(arrayOfObjects) {
 
 }
 
-calculatePercentages(test)
+console.log(calculatePercentages(test))
 
-
-
-function getRandomStudent(arrayOfObjects) {
+export function getRandomStudent(arrayOfObjects) {
     const randomNumber = Math.floor(Math.random() * 100)
+    const colors = ['red', 'yellow', 'green']
 
     let color
-    if (randomNumber <= 53) color = 'red'
-    else if (randomNumber > 53 && randomNumber < 81) color = 'yellow'
-    else color = 'green'
+    if (randomNumber <= 53) color = colors[0]
+    else if (randomNumber > 53 && randomNumber < 81) color = colors[1]
+    else color = colors[2]
 
     const students = arrayOfObjects.filter(object => object.evaluation === color)
     const randomStudent = students[Math.floor(Math.random()*students.length)]
-
     return randomStudent
+
 }
+
 
 getRandomStudent(test)
