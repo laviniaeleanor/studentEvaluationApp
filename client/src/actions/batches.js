@@ -8,8 +8,9 @@ export const GET_BATCH = 'GET_BATCHES'
 export const ADD_BATCH = 'ADD_BATCH'
 
 export const GET_STUDENTS = 'GET_STUDENTS'
+export const GET_STUDENT = 'GET_STUDENT'
 export const ADD_STUDENT = 'ADD_STUDENT'
-
+export const DELETE_STUDENT = 'DELETE_STUDENT'
 
 export const getBatches = () => (dispatch) => {
 	request
@@ -73,4 +74,28 @@ export const addStudent = (student) => (dispatch) => {
         })
     })
     .catch(err => console.error(err))
+}
+
+export const getStudent = (id) => (dispatch) => {
+	request
+	.get(`${baseUrl}/students/${id}`)
+    .then(result => {
+      dispatch({
+        type: GET_STUDENT,
+		payload: result.body
+      })
+    })
+    .catch(err => console.error(err))
+}
+
+export const deleteStudent = (id) => (dispatch) => {
+	request
+	.delete(`${baseUrl}/students/${id}`)
+	.then(result => {
+		dispatch({
+			type: DELETE_STUDENT,
+			payload: result.body
+		})
+	})
+	.catch(err => console.error(err))
 }
