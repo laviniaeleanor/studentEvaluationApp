@@ -26,6 +26,14 @@ export default class StudentController {
         return classStudents 
     }
 
+    @Get('/students/:id([0-9]+)')
+    @HttpCode(201)
+    getStudent(
+        @Param('id') studentId: number
+    ) {
+        return Student.findOne(studentId)
+    }
+
     //modify student by id
     @Patch('/students/:id([0-9]+)')
     async updateStudent(

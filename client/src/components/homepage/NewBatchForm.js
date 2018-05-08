@@ -53,7 +53,7 @@ class NewBatchForm extends PureComponent {
                     variant="raised"
                     className="create-quiz"
                 >
-                    Create Quiz
+                    Add batch
                 </Button>
             </form>
         )
