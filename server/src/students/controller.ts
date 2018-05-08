@@ -52,6 +52,6 @@ export default class StudentController {
         if (!student) throw new NotFoundError(`Student not found`)
 
         Student.remove(student)
-        return 'successfully deleted'
+        return student
     }
 }
