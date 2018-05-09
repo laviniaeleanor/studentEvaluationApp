@@ -65,3 +65,36 @@
     user-select: none;
     flex-shrink: 0;
 }
+
+.newBatch {
+    margin-top: -55px;
+    margin-bottom: 100px;
+}
+
+.NewBatchForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.createQuiz {
+    color: #d32f2f;
+}
+
+.CardContainer {
+    margin-top: 300px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.batchCard {
+    display: inline-block;
+    height: 200px;
+    width: 400px;
+    margin: 30px;
+    background-image: url('./CardBackground.png');
+
+}
+
+.Link{
+    text-decoration: none;
+}
