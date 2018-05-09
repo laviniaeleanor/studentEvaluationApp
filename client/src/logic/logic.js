@@ -1,4 +1,5 @@
 export function calculatePercentages(arrayOfObjects) {
+
     const total = arrayOfObjects.length
     const green = arrayOfObjects.filter(object => object.latestEvaluation === 'green').length
     const yellow = arrayOfObjects.filter(object => object.latestEvaluation === 'yellow').length
@@ -21,6 +22,7 @@ export function calculatePercentages(arrayOfObjects) {
 
 
 export function getRandomStudent(arrayOfObjects) {
+
     let randomStudent
 
     if (arrayOfObjects.filter(object => object.latestEvaluation !== 'grey').length === 0) {
@@ -47,4 +49,23 @@ export function getRandomStudent(arrayOfObjects) {
     }
 
     return randomStudent
+}
+
+export function getCurrentDate() {
+
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1;
+    let yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd = '0'+dd
+    }
+
+    if(mm<10) {
+        mm = '0'+mm
+    }
+
+    return mm + '/' + dd + '/' + yyyy;
+
 }
