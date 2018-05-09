@@ -68,7 +68,7 @@ class StudentPage extends PureComponent {
                 { evaluations.map(evaluation =>
                     <div className= "evaluationsContainer">
                     {
-                        !this.state.editEvaluation &&
+                        !this.state.editEvaluation && 
                         <div><h2>{evaluation.date} : {evaluation.evaluation}</h2>
                         <Button onClick={() => this.toggleEditEvaluation(evaluation.id)}>Edit</Button></div>
                     }

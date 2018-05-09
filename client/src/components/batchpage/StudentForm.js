@@ -55,12 +55,3 @@ export default class StudentForm extends PureComponent {
         )
     }
 }
-
-
-// const mapStateToProps = function (state) {
-// 	return {
-//         batch: state.batch
-// 	}
-// }
-//
-// export default connect(mapStateToProps)(StudentForm)

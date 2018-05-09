@@ -15,15 +15,19 @@ class Homepage extends PureComponent {
         const {batches} = this.props
 
         return(
-            <Paper className="outer-paper">
-            <h1>Homepage</h1>
+            <div>
+            <div className="HomepageHeader">
+            <h1>/ All Batches /</h1>
+            <p>Your teaching journey starts here!</p>
+            <svg class="jss177" focusable="false" viewBox="0 0 24 24" aria-hidden="true" fill="rgba(255, 255, 255, 0.6)"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"></path></svg>
+            </div>
             <NewBatchForm />
             { batches.map(batch =>
                 <div className= "batchContainer">
                 <Link to={`/batches/${batch.id}`}><h2>Batch {batch.batchNum}</h2></Link>
                 </div>
             )}
-            </Paper>
+            </div>
         )
     }
 }

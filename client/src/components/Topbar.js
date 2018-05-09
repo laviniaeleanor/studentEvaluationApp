@@ -12,13 +12,12 @@ const TopBar = (props) => {
   const { location, history, user } = props
 
   return (
-    <AppBar position="absolute" style={{
-        zIndex:10,
-        backgroundColor: '#F50057'}}>
+    <AppBar position="absolute" style={{zIndex:10}} className={"AppBar"} >
       <Toolbar>
-        <Typography variant="title" color="inherit" style={{flex: 1}}>
+        <h2 style={{flex: 1}} className={"Title"}>
           Student evaluations
-        </Typography>
+        </h2>
+        <img className="logo" src="https://readest.codaisseur.com/static/media/codaisseur-logo-color.87bc4a59.svg" alt="Codaisseur Logo"/>
         {
           user &&
           <Button color="inherit">{ user.firstName }</Button>
