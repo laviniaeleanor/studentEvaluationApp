@@ -1,9 +1,10 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import {getStudents, getBatch, deleteStudent} from '../../actions/batches'
+import {getStudents, deleteStudent, addStudent} from '../../actions/students'
+import {getBatch} from '../../actions/batches'
 import {Link} from 'react-router-dom'
-import Button from 'material-ui/Button';
-import NewStudentForm from './NewStudentForm'
+import Button from 'material-ui/Button'
+import StudentForm from './StudentForm'
 import BatchInfo from './BatchInfo'
 import RandomStudent from './RandomStudent'
 import Paper from 'material-ui/Paper'
@@ -19,6 +20,7 @@ class BatchPage extends PureComponent {
         this.props.deleteStudent(studentId)
     }
 
+
     render(){
         const {batch, students} = this.props
 
@@ -27,7 +29,7 @@ class BatchPage extends PureComponent {
             <h1>Batch {batch.batchNum}</h1>
             <BatchInfo students={students}/>
             <RandomStudent students={students}/>
-            <NewStudentForm />
+            <StudentForm onSubmit={this.props.addStudent} batch={batch}/>
             { students.map(student =>
                 <div className= "studentsContainer">
                 <Link to={`/students/${student.id}`}><h2>{student.name}</h2></Link>
@@ -44,4 +46,4 @@ const mapStateToProps = (state) => ({
     students: state.students
 })
 
-export default connect (mapStateToProps, {getStudents, getBatch, deleteStudent})(BatchPage)
+export default connect (mapStateToProps, {getStudents, getBatch, deleteStudent, addStudent})(BatchPage)

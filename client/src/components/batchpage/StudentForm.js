@@ -2,16 +2,16 @@ import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField'
-import {addStudent} from '../../actions/batches'
+import {addStudent} from '../../actions/students'
 
 
-class NewStudentForm extends PureComponent {
+export default class StudentForm extends PureComponent {
 
     state = {}
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.addStudent(this.state)
+        this.props.onSubmit(this.state)
     }
 
 
@@ -25,6 +25,7 @@ class NewStudentForm extends PureComponent {
       };
 
     render() {
+        const initialValues = this.props.initialValues || {}
 
         return(
             <form onSubmit={this.handleSubmit}>
@@ -32,14 +33,14 @@ class NewStudentForm extends PureComponent {
                     id='name'
                     name='name'
                     label='Student Name'
-                    value={this.state.name || ''}
+                    value={this.state.name || initialValues.name || ''}
                     onChange={this.handleChange}
                 />
                 <TextField
                   id='picture'
                   name='picture'
                   label='Add a picture'
-                  value={this.state.picture || ''}
+                  value={this.state.picture || initialValues.picture || ''}
                   onChange={this.handleChange}
                   />
                 <Button
@@ -48,7 +49,7 @@ class NewStudentForm extends PureComponent {
                     variant="raised"
                     className="addStudent"
                 >
-                    Add Student
+                    Save
                 </Button>
             </form>
         )
@@ -56,10 +57,10 @@ class NewStudentForm extends PureComponent {
 }
 
 
-const mapStateToProps = function (state) {
-	return {
-        batch: state.batch
-	}
-}
-
-export default connect(mapStateToProps, {addStudent})(NewStudentForm)
+// const mapStateToProps = function (state) {
+// 	return {
+//         batch: state.batch
+// 	}
+// }
+//
+// export default connect(mapStateToProps)(StudentForm)
