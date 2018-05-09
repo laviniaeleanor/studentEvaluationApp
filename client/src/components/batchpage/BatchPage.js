@@ -4,6 +4,8 @@ import {getStudents, getBatch, deleteStudent} from '../../actions/batches'
 import {Link} from 'react-router-dom'
 import Button from 'material-ui/Button';
 import NewStudentForm from './NewStudentForm'
+import BatchInfo from './BatchInfo'
+import RandomStudent from './RandomStudent'
 import Paper from 'material-ui/Paper'
 
 class BatchPage extends PureComponent {
@@ -23,6 +25,8 @@ class BatchPage extends PureComponent {
         return(
             <Paper className="outer-paper">
             <h1>Batch {batch.batchNum}</h1>
+            <BatchInfo students={students}/>
+            <RandomStudent students={students}/>
             <NewStudentForm />
             { students.map(student =>
                 <div className= "studentsContainer">
