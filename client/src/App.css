@@ -81,13 +81,13 @@
 }
 
 .CardContainer {
-    margin-top: 300px;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .batchCard {
-    display: inline-block;
+    display: inline;
     height: 200px;
     width: 400px;
     margin: 30px;
@@ -95,6 +95,8 @@
 
 }
 
-.Link{
-    text-decoration: none;
+.batchCard h1 {
+    color: #FFF;
+    font-family: 'Poppins';
+    padding: 40px;
 }
