@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {getBatches, addBatch} from '../../actions/batches'
-import {Link} from 'react-router-dom'
+import ButtonBase from 'material-ui/ButtonBase'
 import {Redirect} from 'react-router-dom'
 import NewBatchForm from './NewBatchForm'
 import Card from 'material-ui/Card'
@@ -42,7 +42,9 @@ class Homepage extends PureComponent {
 
           { batches.map(batch =>
             <Card className= "batchCard" key={batch.id}>
-              <h1>Batch {batch.batchNum}</h1>
+              <ButtonBase onClick={() => window.location = `batches/${batch.id}`}>
+                <h1>Batch {batch.batchNum}</h1>
+              </ButtonBase>
             </Card>
           )}
 

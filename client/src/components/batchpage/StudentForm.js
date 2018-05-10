@@ -10,48 +10,48 @@ export default class StudentForm extends PureComponent {
     state = {}
 
     handleSubmit = (e) => {
-        e.preventDefault()
-        this.props.onSubmit(this.state)
+      e.preventDefault()
+      this.props.onSubmit(this.state)
     }
 
 
     handleChange = (e) => {
-        const {name, value} = e.target
+      const {name, value} = e.target
 
-        this.setState({
-            batch: this.props.batch.id,
-            [name] : value
-        })
-      };
+      this.setState({
+        batch: this.props.batch.id,
+        [name] : value
+      })
+    };
 
     render() {
-        const initialValues = this.props.initialValues || {}
+      const initialValues = this.props.initialValues || {}
 
-        return(
-            <form onSubmit={this.handleSubmit}>
-                <TextField
-                    id='name'
-                    name='name'
-                    label='Student Name'
-                    value={this.state.name || initialValues.name || ''}
-                    onChange={this.handleChange}
-                />
-                <TextField
-                  id='picture'
-                  name='picture'
-                  label='Add a picture'
-                  value={this.state.picture || initialValues.picture || ''}
-                  onChange={this.handleChange}
-                  />
-                <Button
-                    type='submit'
-                    color="secondary"
-                    variant="raised"
-                    className="addStudent"
-                >
-                    Save
-                </Button>
-            </form>
-        )
+      return(
+        <form onSubmit={this.handleSubmit} className="NewBatchForm">
+          <h3>Add a new student:</h3>
+          <TextField
+            id='name'
+            name='name'
+            label='Student Name'
+            value={this.state.name || initialValues.name || ''}
+            onChange={this.handleChange}
+          />
+          <TextField
+            id='picture'
+            name='picture'
+            label='Add a picture'
+            value={this.state.picture || initialValues.picture || ''}
+            onChange={this.handleChange}
+          />
+          <Button
+            type='submit'
+            color="secondary"
+            variant="raised"
+            className="addStudent"
+          > Save
+          </Button>
+        </form>
+      )
     }
 }

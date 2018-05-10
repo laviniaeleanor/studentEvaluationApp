@@ -1,4 +1,3 @@
-//src/reducers/index.js
 import signup from './signup'
 import login from './login'
 import users from './users'
@@ -8,6 +7,7 @@ import batch from './batch'
 import students from './students'
 import student from './student'
 import evaluations from './evaluations'
+import randomStudent from './randomStudent'
 
 
 export default {
@@ -19,5 +19,6 @@ export default {
   batch,
   students,
   student,
-  evaluations
+  evaluations,
+  randomStudent
 }

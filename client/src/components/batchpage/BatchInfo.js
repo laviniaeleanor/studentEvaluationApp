@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
-import Button from 'material-ui/Button'
 import {calculatePercentages} from '../../logic/logic'
+import {colors} from '../../constants'
 
 export default class BatchInfo extends PureComponent {
 
@@ -10,10 +10,10 @@ export default class BatchInfo extends PureComponent {
     console.log(percentages)
     return(
       <div className="BatchInfo">
-        <Button className = "Percentage"> {percentages.green}%</Button>
-        <Button className = "Percentage"> {percentages.yellow}%</Button>
-        <Button className = "Percentage"> {percentages.red}%</Button>
-        <Button className = "Percentage">Not yet evaluated: {percentages.grey}%</Button>
+        <div className = "Percentage" style={{backgroundColor : colors.green}}>Good: {percentages.green}%</div>
+        <div className = "Percentage" style={{backgroundColor : colors.yellow}}>Medium: {percentages.yellow}%</div>
+        <div className = "Percentage" style={{backgroundColor : colors.red}}>Negative: {percentages.red}%</div>
+        <div className = "Percentage" style={{backgroundColor : colors.grey}}>Not yet evaluated: {percentages.grey}%</div>
       </div>
     )
   }

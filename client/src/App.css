@@ -107,6 +107,7 @@
     font-weight: bold;
     margin: auto;
     margin-top: 20px;
+    margin-bottom: -30px;
     padding: 20px;
     width: 60%;
 }
@@ -147,4 +148,48 @@
 
 .Submit {
     margin-top: 20px;
+}
+
+.Percentage {
+    padding: 0 12px;
+    border-radius: 32px;
+    font-size: 15px;
+    margin: 5px;
+    color: #FFF;
+    font-weight: 500;
+    margin-bottom: 100px;
+}
+
+.StudentContainer{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.studentCard {
+    width: 300px;
+    height: 410px
+}
+
+.PictureContainer {
+    width: 300px;
+    height: 300px;
+}
+
+.StudentPicture {
+    max-width: 300px;
+    height: auto;
+}
+
+.evaluation {
+    height: 15px;
+    width: 300px;
+}
+
+#RandomStudent {
+    border: rgb(0, 147, 213)
+}
+
+.getRandomStudent {
+    padding: 20px;
 }
