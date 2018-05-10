@@ -189,3 +189,7 @@
 #RandomStudent {
     border: rgb(0, 147, 213)
 }
+
+.getRandomStudent {
+    padding: 20px;
+}
