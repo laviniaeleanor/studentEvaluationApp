@@ -41,12 +41,14 @@ export default class StudentController {
         @Body() update 
     ) {
         const student = await Student.findOne(studentId)
+        console.log(update)
 
         if (!student) throw new NotFoundError(`Student not found`)
 
         const updatedStudent = Student.merge(student, update)
         
         const entity = await updatedStudent.save()
+        console.log(entity)
         return entity
     }
 
