@@ -3,19 +3,29 @@ import {connect} from 'react-redux'
 import Button from 'material-ui/Button'
 import Paper from 'material-ui/Paper'
 import {getRandomStudent} from '../../logic/logic'
+import {returnRandomStudent} from '../../actions/students'
 
-export default class BatchInfo extends PureComponent {
+class RandomStudent extends PureComponent {
 
-    render(){
-        const {students} = this.props
-        console.log(students)
+  returnRandomStudent = (students) => {
+    this.props.returnRandomStudent(getRandomStudent(students))
+  }
 
-        return(
-            <Paper className="outer-paper">
-            <Button className ="getRandomStudent"
-            onClick = {() => getRandomStudent(students)}
-            >Ask Random Question</Button>
-            </Paper>
-        )
-    }
+  render(){
+    const {students} = this.props
+
+    return(
+      <Paper className="outer-paper">
+        <Button className ="getRandomStudent"
+          onClick = {() => this.returnRandomStudent(students)}
+        >Ask Random Question</Button>
+      </Paper>
+    )
+  }
 }
+
+const mapStateToProps = (state) => {
+  students: state.students
+}
+
+export default connect (mapStateToProps, {returnRandomStudent})(RandomStudent)

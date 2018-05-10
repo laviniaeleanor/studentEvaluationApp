@@ -47,7 +47,7 @@ export default class NewBatchForm extends PureComponent {
           <Button
             type='submit'
             variant="raised"
-            className={"createQuiz"}
+            className="addBatch"
           >Add batch
           </Button>
         </form>

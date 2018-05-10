@@ -30,17 +30,21 @@ class BatchPage extends PureComponent {
         <div className="BatchPage">
           <h1>Batch #{batch.batchNum}</h1>
           <BatchInfo students={students}/>
-          <RandomStudent students={students}/>
-          <StudentForm onSubmit={this.props.addStudent} batch={batch}/>
+          <Card className='outer-paper newBatch'>
+            <StudentForm onSubmit={this.props.addStudent} batch={batch}/>
+          </Card>
           <div className="StudentContainer">
+            <Card className= "studentCard" id="RandomStudent">
+              <RandomStudent students={students}/>
+            </Card>
             { students.map(student =>
               <Card className= "studentCard" key={student.id}>
-                <h2>{student.name}</h2>
-                <Button onClick={() => this.deleteStudent(student.id)}>Delete Student</Button>
-                <div className="evaluation" style={{backgroundColor: getEvaluationColor(student.latestEvaluation, colors)}}></div>
                 <div className="PictureContainer">
                   <Link to ={`/students/${student.id}`}> <img className="StudentPicture" src={student.picture} alt={student.name}/></Link>
                 </div>
+                <h2>{student.name}</h2>
+                <Button onClick={() => this.deleteStudent(student.id)}>Delete Student</Button>
+                <div className="evaluation" style={{backgroundColor: getEvaluationColor(student.latestEvaluation, colors)}}></div>
               </Card>
             )}
           </div>

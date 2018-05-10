@@ -157,6 +157,7 @@
     margin: 5px;
     color: #FFF;
     font-weight: 500;
+    margin-bottom: 100px;
 }
 
 .StudentContainer{
@@ -183,4 +184,8 @@
 .evaluation {
     height: 15px;
     width: 300px;
+}
+
+#RandomStudent {
+    border: rgb(0, 147, 213)
 }
