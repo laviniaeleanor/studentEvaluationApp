@@ -49,6 +49,7 @@ export default class EvaluationController {
         const updatedEvaluation = Evaluation.merge(evaluation, update)
         
         const entity = await updatedEvaluation.save()
+        console.log(entity)
         return entity
     }
 

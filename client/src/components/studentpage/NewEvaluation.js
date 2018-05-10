@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField'
-import {withRouter} from 'react-router'
+import {updateLatestEvaluation} from '../../actions/evaluations'
 import {Link} from 'react-router-dom'
 import {getCurrentDate, getNextStudent} from '../../logic/logic'
 
@@ -70,7 +70,6 @@ class NewEvaluation extends PureComponent {
             color="secondary"
             variant="raised"
             className="addStudent"
-            onClick={() => history.push(`/batches/${this.props.student.batch}`)}
           >Save
           </Button>
           { nextStudent &&
@@ -95,5 +94,4 @@ const mapStateToProps = function (state) {
   }
 }
 
-export default withRouter( connect(mapStateToProps)(NewEvaluation)
-)
+export default connect(mapStateToProps, {updateLatestEvaluation})(NewEvaluation)

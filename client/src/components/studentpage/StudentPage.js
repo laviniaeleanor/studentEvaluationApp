@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {getStudent, updateStudent} from '../../actions/students'
-import {getEvaluations, updateEvaluation, addEvaluation} from '../../actions/evaluations'
-import {Link} from 'react-router-dom'
+import {getEvaluations, updateEvaluation, addEvaluation, updateLatestEvaluation} from '../../actions/evaluations'
+import {checkDate} from '../../logic/logic'
 import StudentForm from '../batchpage/StudentForm'
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper'
@@ -35,6 +35,13 @@ class StudentPage extends PureComponent {
       })
     }
 
+    addEvaluation = (newEvaluation) => {
+      if (!checkDate(this.props.evaluations, newEvaluation))  return alert("Only one evaluation per day allowed")
+      this.props.addEvaluation(newEvaluation)
+      this.props.updateLatestEvaluation(this.props.student.id, newEvaluation)
+      console.log('You submitted')
+    }
+
     updateStudent = (student) => {
       this.props.updateStudent(this.props.match.params.id, student)
       this.toggleEditStudent()
@@ -62,7 +69,7 @@ class StudentPage extends PureComponent {
           }
           {
             !this.state.editEvaluation &&
-                    <NewEvaluation onSubmit={this.props.addEvaluation}/>
+                    <NewEvaluation onSubmit={this.addEvaluation}/>
           }
 
           { evaluations.map(evaluation =>
@@ -85,9 +92,9 @@ class StudentPage extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-    student: state.student,
-    evaluations: state.evaluations,
-    batch: state.batch
+  student: state.student,
+  evaluations: state.evaluations,
+  batch: state.batch
 })
 
-export default connect (mapStateToProps, {getStudent, getEvaluations, updateStudent, updateEvaluation, addEvaluation})(StudentPage)
+export default connect (mapStateToProps, {getStudent, getEvaluations, updateStudent, updateEvaluation, addEvaluation, updateLatestEvaluation})(StudentPage)

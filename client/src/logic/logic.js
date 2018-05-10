@@ -77,3 +77,8 @@ export function getNextStudent(arrayOfObjects, object){
   index += 1
   return arrayOfObjects[index]
 }
+
+export function checkDate(arrayOfObjects, update){
+  if (arrayOfObjects.filter(object => object.date === update.date).length === 0) return true
+  return false
+}
