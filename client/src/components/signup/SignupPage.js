@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {signup} from '../../actions/users'
 import SignupForm from './SignupForm'
 import {Redirect} from 'react-router-dom'
+import Paper from 'material-ui/Paper'
 
 class SignupPage extends PureComponent {
 
@@ -17,13 +18,13 @@ class SignupPage extends PureComponent {
 	  )
 
 	  return (
-	    <div className="paper">
+	    <Paper className="SignIn">
 	      <h1>Sign up</h1>
 
 	      <SignupForm onSubmit={this.handleSubmit} />
 
 	      <p style={{color:'red'}}>{ this.props.signup.error }</p>
-	    </div>
+	    </Paper>
 	  )
 	}
 }
