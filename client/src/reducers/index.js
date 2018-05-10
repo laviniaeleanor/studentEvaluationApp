@@ -1,7 +1,8 @@
 //src/reducers/index.js
-import login from './login'
-import currentUser from './currentUser'
 import signup from './signup'
+import login from './login'
+import users from './users'
+import currentUser from './currentUser'
 import batches from './batches'
 import batch from './batch'
 import students from './students'
@@ -11,8 +12,9 @@ import evaluations from './evaluations'
 
 export default {
   login,
-  currentUser,
   signup,
+  users,
+  currentUser,
   batches,
   batch,
   students,
