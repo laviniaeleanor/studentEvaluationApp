@@ -158,3 +158,29 @@
     color: #FFF;
     font-weight: 500;
 }
+
+.StudentContainer{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.studentCard {
+    width: 300px;
+    height: 410px
+}
+
+.PictureContainer {
+    width: 300px;
+    height: 300px;
+}
+
+.StudentPicture {
+    max-width: 300px;
+    height: auto;
+}
+
+.evaluation {
+    height: 15px;
+    width: 300px;
+}
