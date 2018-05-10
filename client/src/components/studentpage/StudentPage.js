@@ -60,23 +60,26 @@ class StudentPage extends PureComponent {
           <h1>{student.name}</h1>
           {
             !this.state.editStudent &&
-                    <Button onClick={this.toggleEditStudent}>Edit</Button>
+                    <Button onClick={this.toggleEditStudent}>Edit Student Information</Button>
           }
-
+          <br></br>
           {
             this.state.editStudent &&
                     <StudentForm initialValues={student} onSubmit={this.updateStudent} batch={batch}/>
           }
-          {
-            !this.state.editEvaluation &&
+          <div className="PictureAndForm">
+            <img src={student.picture} alt={student.name} className='StudentPicture'/>
+            {
+              !this.state.editEvaluation &&
                     <NewEvaluation onSubmit={this.addEvaluation}/>
-          }
-
+            }
+          </div>
+          <h2>Previous evaluations</h2>
           { evaluations.map(evaluation =>
             <div className= "evaluationsContainer">
               {
                 !this.state.editEvaluation &&
-                        <div><h2>{evaluation.date} : {evaluation.evaluation}</h2>
+                        <div><h3>{evaluation.date} : {evaluation.remarks}</h3><div className="evaluation" style={{backgroundColor: evaluation.evaluation}}></div>
                           <Button onClick={() => this.toggleEditEvaluation(evaluation.id)}>Edit</Button></div>
               }
 

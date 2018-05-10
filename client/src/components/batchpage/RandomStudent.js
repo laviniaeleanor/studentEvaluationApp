@@ -15,7 +15,7 @@ class RandomStudent extends PureComponent {
 
     return(
       <div>
-        <Button style={{backgroundColor: 'red', color: '#FFF', marginLeft: 50, marginTop:5, marginBottom: 5 }} 
+        <Button style={{backgroundColor: 'red', color: '#FFF', marginLeft: 50, marginTop:5, marginBottom: 5 }}
           onClick = {() => this.returnRandomStudent(students)}
         >Ask Random Question</Button>
         <img src={randomStudent.picture} alt={randomStudent.name} className="StudentPicture"/>
