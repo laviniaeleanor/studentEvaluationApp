@@ -29,6 +29,7 @@ export default class SignupForm extends PureComponent {
 	          label="Username"
 	          type="text"
 	          margin="normal"
+			  className="TextField"
 	          onChange={ this.handleChange }
 	          value={
 	            this.state.userName || ''
@@ -45,6 +46,7 @@ export default class SignupForm extends PureComponent {
 	          label="Email"
 	          type="email"
 	          margin="normal"
+			  className="TextField"
 	          onChange={ this.handleChange }
 	          value={
 	            this.state.email || ''
@@ -60,40 +62,42 @@ export default class SignupForm extends PureComponent {
 	          label="Password"
 	          type="password"
 	          margin="normal"
-						onChange={ this.handleChange }
-						value={
-							this.state.password || ''
-						}
-						required
-					/>
-					</div>
-					<div>
-						<TextField
-							id="confirmPassword"
-							name='confirmPassword'
-							label="Confirm Password"
-							type="password"
-							margin="normal"
-							onChange={ this.handleChange }
-							value={
-								this.state.confirmPassword || ''
-							}
-							required
-						/>
-					</div>
+			  className="TextField"
+			  onChange={ this.handleChange }
+			  value={
+			  this.state.password || ''
+			  }
+			  required
+			  />
+			  </div>
+			  <div>
+			     <TextField
+				  id="confirmPassword"
+				  name='confirmPassword'
+				  label="Confirm Password"
+				  type="password"
+				  margin="normal"
+				  className="TextField"
+				  onChange={ this.handleChange }
+				  value={
+				  	this.state.confirmPassword || ''
+		      			}
+		      			required
+		      		/>
+		      	</div>
 
 
-				{
-					this.state.password &&
+		  	{
+		  		this.state.password &&
 					this.state.confirmPassword &&
 					this.state.password !== this.state.confirmPassword &&
 					<p style={{color:'red'}}>The passwords do not match!</p>
-				}
+		  	}
 
 
-				<Button variant="raised" type="submit"> Submit </Button>
+		  	<Button variant="raised" type="submit"> Submit </Button>
 
-			</form>
-		)
+		  </form>
+	  )
 	}
 }

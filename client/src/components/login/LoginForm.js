@@ -8,54 +8,56 @@ export default class LoginForm extends PureComponent {
 	state = {}
 
 	handleSubmit = (e) => {
-		e.preventDefault()
-		this.props.onSubmit(this.state)
+	  e.preventDefault()
+	  this.props.onSubmit(this.state)
 	}
 
 	handleChange = (event) => {
-    const {name, value} = event.target
+	  const {name, value} = event.target
 
-    this.setState({
-      [name]: value
-    })
-  }
+	  this.setState({
+	    [name]: value
+	  })
+	}
 
 	render() {
-		return (
-			<form onSubmit={this.handleSubmit}>
+	  return (
+	    <form onSubmit={this.handleSubmit}>
 
-				<div>
-					<TextField
-						id="email"
-						name="email"
-						label="Email"
-						type="email"
-						margin="normal"
-						onChange={ this.handleChange }
-						value={
-							this.state.email || ''
-						}
-						required
-					/>
-					</div>
+	      <div>
+	        <TextField
+	          id="email"
+	          name="email"
+	          label="Email"
+	          type="email"
+	          margin="normal"
+			  className="TextField"
+	          onChange={ this.handleChange }
+	          value={
+	            this.state.email || ''
+	          }
+	          required
+	        />
+	      </div>
 
-					<div>
-						<TextField
-							id="password"
-							name="password"
-							label="Password"
-							type="password"
-							margin="normal"
-							onChange={ this.handleChange }
-							value={
-								this.state.password || ''
-							}
-							required
-						/>
-						</div>
+	      <div>
+	        <TextField
+	          id="password"
+	          name="password"
+	          label="Password"
+	          type="password"
+	          margin="normal"
+			  className="TextField"
+	          onChange={ this.handleChange }
+	          value={
+	            this.state.password || ''
+	          }
+	          required
+	        />
+	      </div>
 
-					<Button variant="raised" type="submit"> Submit </Button>
-			</form>
-		)
+	      <Button variant="raised" type="submit" className="Submit"> Submit </Button>
+	    </form>
+	  )
 	}
 }
