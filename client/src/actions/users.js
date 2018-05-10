@@ -1,10 +1,8 @@
-// add simple actions here that don't use endpoints and backend stu
 import * as request from 'superagent'
-//import {baseUrl} from '../constants'
+
 import {isExpired} from '../jwt'
 
 const baseUrl = 'http://localhost:4001'
-const authorizationUrl = 'http://localhost:4001'
 
 export const ADD_USER = 'ADD_USER'
 export const UPDATE_USER = 'UPDATE_USER'
@@ -23,16 +21,16 @@ export const logout = () => ({
 })
 
 export const login = (email, password) => (dispatch) =>
-	request
-		.post(`${authorizationUrl}/logins`)
+  request
+    .post(`${baseUrl}/logins`)
     .send({email, password})
     .then(result => {
       dispatch({
         type: USER_LOGIN_SUCCESS,
-				payload: {
-					jwt: result.body.jwt,
-					userId: result.body.user.id,
-				}
+        payload: {
+          jwt: result.body.jwt,
+          userId: result.body.user.id,
+        }
       })
     })
     .catch(err => {
@@ -48,26 +46,26 @@ export const login = (email, password) => (dispatch) =>
     })
 
 export const signup = (userName, email, password) => (dispatch) => {
-	request
-		.post(`${baseUrl}/users`)
-		.send({ userName, email, password})
-		.then(result => {
-			dispatch({
-				type: USER_SIGNUP_SUCCESS
-			})
-		})
-		.catch(err => {
-			if (err.status === 400) {
-				dispatch({
-					type: USER_SIGNUP_FAILED,
-					payload: err.response.body.message || 'Unknown error'
-				})
-			}
-			else {
-				console.error(err)
-			}
-		})
-  }
+  request
+    .post(`${baseUrl}/users`)
+    .send({ userName, email, password})
+    .then(result => {
+      dispatch({
+        type: USER_SIGNUP_SUCCESS
+      })
+    })
+    .catch(err => {
+      if (err.status === 400) {
+        dispatch({
+          type: USER_SIGNUP_FAILED,
+          payload: err.response.body.message || 'Unknown error'
+        })
+      }
+      else {
+        console.error(err)
+      }
+    })
+}
 
 export const getUsers = () => (dispatch, getState) => {
   const state = getState()
