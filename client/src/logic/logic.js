@@ -69,3 +69,11 @@ export function getCurrentDate() {
     return mm + '/' + dd + '/' + yyyy;
 
 }
+
+export function getNextStudent(arrayOfObjects, object){
+  let index = arrayOfObjects.findIndex(x => x.id === object.id)
+  if (index === arrayOfObjects.length - 1)
+    index = 0
+  index += 1
+  return arrayOfObjects[index]
+}
