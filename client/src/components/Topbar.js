@@ -36,7 +36,7 @@ const TopBar = (props) => {
           <Button color="inherit" onClick={() => history.push('/batches')}>All Batches</Button>
         }
         {
-          /quizzes$/.test(location.pathname) &&
+          /batches$/.test(location.pathname) &&
           <Button color="inherit" onClick={() => history.push('/logout')}>Log out</Button>
         }
       </Toolbar>
