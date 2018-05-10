@@ -29,7 +29,7 @@ export default class StudentForm extends PureComponent {
 
       return(
         <form onSubmit={this.handleSubmit} className="NewBatchForm">
-          <h3>Add a new student:</h3>
+          <h3>Insert full name and picture url:</h3>
           <TextField
             id='name'
             name='name'

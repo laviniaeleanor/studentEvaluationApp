@@ -5,6 +5,7 @@ import TextField from 'material-ui/TextField'
 import {updateLatestEvaluation} from '../../actions/evaluations'
 import {Link} from 'react-router-dom'
 import {getCurrentDate, getNextStudent} from '../../logic/logic'
+import {colors} from '../../constants'
 
 class NewEvaluation extends PureComponent {
 
@@ -34,28 +35,42 @@ class NewEvaluation extends PureComponent {
         date: getCurrentDate(),
         [name] : value
       })
+
+      console.log(this.state)
     };
 
 
     render() {
       const initialValues = this.props.initialValues || {}
-      const {history} = this.props
       const nextStudent = getNextStudent(this.props.students, this.props.student)
 
       return(
         <form onSubmit={this.handleSubmit}>
+          <div className="Buttons">
+            <Button
+              style={{backgroundColor: colors.green, color: '#FFF', margin: 15, padding: 16}}
+              name = "evaluation"
+              value="green"
+              onClick={this.handleChange}
+            >Good</Button>
+            <Button
+              style={{backgroundColor: colors.yellow, color: '#FFF', margin: 15, padding: 16}}
+              name = "evaluation"
+              value="yellow"
+              onClick={this.handleChange}
+            >Medium</Button>
+            <Button
+              style={{backgroundColor: colors.red, color: '#FFF', margin: 15, padding: 16}}
+              name = "evaluation"
+              value="red"
+              onClick={this.handleChange}
+            >Negative</Button>
+          </div>
           <TextField
             id='date'
             name='date'
             label='Evaluation Date'
             value={this.state.date || initialValues.date || getCurrentDate()}
-            onChange={this.handleChange}
-          />
-          <TextField
-            id='evaluation'
-            name='evaluation'
-            label='Add an evaluation'
-            value={this.state.evaluation || initialValues.evaluation || ''}
             onChange={this.handleChange}
           />
           <TextField
