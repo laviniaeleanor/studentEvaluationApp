@@ -19,7 +19,7 @@ class SignupPage extends PureComponent {
 
 	  return (
 	    <Paper className="SignIn">
-	      <h1>Sign up</h1>
+	      <h2>Sign up</h2>
 
 	      <SignupForm onSubmit={this.handleSubmit} />
 
