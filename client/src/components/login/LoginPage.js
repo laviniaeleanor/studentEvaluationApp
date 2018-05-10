@@ -10,9 +10,9 @@ class LoginPage extends PureComponent {
 	}
 
 	render() {
-		// if (this.props.currentUser) return (
-		// 	<Redirect to="/signup" />
-		// )
+		if (this.props.currentUser) return (
+			<Redirect to="/" />
+		)
 
 		return (
 			<div className="paper">
@@ -28,7 +28,7 @@ class LoginPage extends PureComponent {
 const mapStateToProps = function (state) {
 	return {
 		currentUser: state.currentUser,
-    	// error: state.login.error
+    	error: state.login.error
 	}
 }
 

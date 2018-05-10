@@ -6,60 +6,60 @@ export default class SignupForm extends PureComponent {
 	state = {}
 
 	handleSubmit = (e) => {
-		e.preventDefault()
-		this.props.onSubmit(this.state)
+	  e.preventDefault()
+	  this.props.onSubmit(this.state)
 	}
 
 	handleChange = (event) => {
-    const {name, value} = event.target
+	  const {name, value} = event.target
 
-    this.setState({
-      [name]: value
-    })
+	  this.setState({
+	    [name]: value
+	  })
 	}
 
 	render() {
-		return (
-			<form onSubmit={this.handleSubmit}>
+	  return (
+	    <form onSubmit={this.handleSubmit}>
 
-			<div>
-				<TextField
-					id="userName"
-					name='userName'
-					label="Username"
-					type="text"
-					margin="normal"
-					onChange={ this.handleChange }
-					value={
-						this.state.userName || ''
-					}
-					required
-				/>
-				</div>
+	      <div>
+	        <TextField
+	          id="userName"
+	          name='userName'
+	          label="Username"
+	          type="text"
+	          margin="normal"
+	          onChange={ this.handleChange }
+	          value={
+	            this.state.userName || ''
+	          }
+	          required
+	        />
+	      </div>
 
 
-				<div>
-					<TextField
-						id="email"
-						name='email'
-						label="Email"
-						type="email"
-						margin="normal"
-						onChange={ this.handleChange }
-						value={
-							this.state.email || ''
-						}
-						required
-					/>
-				</div>
+	      <div>
+	        <TextField
+	          id="email"
+	          name='email'
+	          label="Email"
+	          type="email"
+	          margin="normal"
+	          onChange={ this.handleChange }
+	          value={
+	            this.state.email || ''
+	          }
+	          required
+	        />
+	      </div>
 
-				<div>
-					<TextField
-						id="password"
-						name='password'
-						label="Password"
-						type="password"
-						margin="normal"
+	      <div>
+	        <TextField
+	          id="password"
+	          name='password'
+	          label="Password"
+	          type="password"
+	          margin="normal"
 						onChange={ this.handleChange }
 						value={
 							this.state.password || ''

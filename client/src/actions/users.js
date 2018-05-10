@@ -29,7 +29,7 @@ export const login = (email, password) => (dispatch) =>
         type: USER_LOGIN_SUCCESS,
         payload: {
           jwt: result.body.jwt,
-          userId: result.body.user.id,
+          userId: result.body.id,
         }
       })
     })

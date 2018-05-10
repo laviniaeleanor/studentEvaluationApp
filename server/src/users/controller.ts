@@ -1,33 +1,40 @@
-import { JsonController, Get, Param, Body, Post, NotFoundError } from 'routing-controllers'
-import User from './entity'
+import { JsonController, Post, Param, Get, Body, Authorized } from 'routing-controllers'
+import User from './entity';
+import { io } from '../index'
 
 @JsonController()
 export default class UserController {
-  // requests all users
-  @Get('/users')
-  async allUsers(){
-    const users = await User.find()
-    if (!users) throw new NotFoundError('Users table doesn\'t exist')
-    return {users}
-  }
-  // requests one user
-  @Get('/users/:id')
-  async user(
-    @Param('id') id: number
-  ){
-    const user = await User.findOne(id)
-    return { user }
-  }
 
-  // creates a user
   @Post('/users')
-  async createUser(
-    @Body() user: User
+  async signup(
+    @Body() data: User
   ) {
-    const {password, ...rest} = user
+    const {password, ...rest} = data
     const entity = User.create(rest)
     await entity.setPassword(password)
-    return entity.save()
+
+    const user = await entity.save()
+    console.log('Backend', user.id)
+
+    io.emit('action', {
+      type: 'ADD_USER',
+      payload: entity
+    })
+
+    return user
   }
 
-} 
+  @Authorized()
+  @Get('/users/:id([0-9]+)')
+  getUser(
+    @Param('id') id: number
+  ) {
+    return User.findOne(id)
+  }
+
+  @Authorized()
+  @Get('/users')
+  allUsers() {
+    return User.find()
+  }
+}

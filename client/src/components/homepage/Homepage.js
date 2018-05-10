@@ -2,17 +2,24 @@ import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {getBatches, addBatch} from '../../actions/batches'
 import {Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import NewBatchForm from './NewBatchForm'
 import Card from 'material-ui/Card'
 
 class Homepage extends PureComponent {
 
   componentWillMount(){
-    this.props.getBatches()
+    if (this.props.authenticated) {
+      this.props.getBatches()
+    }
   }
 
   render(){
-    const {batches} = this.props
+    const {batches, authenticated} = this.props
+
+    if (!authenticated) return (
+      <Redirect to="/login" />
+    )
 
     return(
       <div>
@@ -46,6 +53,7 @@ class Homepage extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
+  authenticated: state.currentUser !== null,
   batches: state.batches
 })
 
