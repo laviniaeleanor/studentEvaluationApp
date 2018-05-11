@@ -84,7 +84,6 @@ export function checkDate(arrayOfObjects, update){
 }
 
 export function getEvaluationColor(evaluation, colors){
-  console.log(evaluation)
   switch(evaluation) {
   case 'green':
     return colors.green

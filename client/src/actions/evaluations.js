@@ -1,5 +1,4 @@
 import * as request from 'superagent'
-// import {isExpired} from '../jwt'
 
 const baseUrl = 'http://localhost:4001'
 
@@ -34,7 +33,6 @@ export const addEvaluation = (evaluation) => (dispatch) => {
 }
 
 export const updateEvaluation = (id, updates) => (dispatch) => {
-  console.log('in update action', id, updates)
   request
     .patch(`${baseUrl}/evaluations/${id}`)
     .send(updates)
@@ -58,5 +56,4 @@ export const updateLatestEvaluation = (studentId, update) => (dispatch) => {
       })
     })
     .catch(err => console.error(err))
-
 }

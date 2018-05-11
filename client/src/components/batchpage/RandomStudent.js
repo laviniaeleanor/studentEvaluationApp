@@ -1,8 +1,8 @@
-import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
+import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+import { returnRandomStudent } from '../../actions/students'
+import { getRandomStudent } from '../../logic/logic'
 import Button from 'material-ui/Button'
-import {getRandomStudent} from '../../logic/logic'
-import {returnRandomStudent} from '../../actions/students'
 
 class RandomStudent extends PureComponent {
 
@@ -15,10 +15,13 @@ class RandomStudent extends PureComponent {
 
     return(
       <div>
-        <Button style={{backgroundColor: 'red', color: '#FFF', marginLeft: 50, marginTop:5, marginBottom: 5 }}
+        <Button
+          style={{backgroundColor: 'red', color: '#FFF', marginLeft: 50, marginTop:5, marginBottom: 5 }}
           onClick = {() => this.returnRandomStudent(students)}
         >Ask Random Question</Button>
+
         <img src={randomStudent.picture} alt={randomStudent.name} className="StudentPicture"/>
+
         <h2>{randomStudent.name}</h2>
       </div>
     )
@@ -30,4 +33,4 @@ const mapStateToProps = (state) => ({
   students: state.students
 })
 
-export default connect (mapStateToProps, {returnRandomStudent})(RandomStudent)
+export default connect (mapStateToProps, { returnRandomStudent })(RandomStudent)

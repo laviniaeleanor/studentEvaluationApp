@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 import { BaseEntity } from 'typeorm/repository/BaseEntity'
+import { EvaluationColor } from '../evaluations/entity';
 
 @Entity()
 export default class Student extends BaseEntity {
@@ -17,6 +18,6 @@ export default class Student extends BaseEntity {
   batch: number
 
   @Column('text', { nullable: true, default: 'grey' })
-  latestEvaluation?: string
+  latestEvaluation?: EvaluationColor
 
 }

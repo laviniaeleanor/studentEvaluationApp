@@ -1,7 +1,8 @@
-import {ADD_USER, UPDATE_USER, UPDATE_USERS} from '../actions/users'
+import { ADD_USER, UPDATE_USER, UPDATE_USERS } from '../actions/users'
 
 export default (state = null, {type, payload}) => {
   switch (type) {
+      
   case ADD_USER:
     return {
       ...state,

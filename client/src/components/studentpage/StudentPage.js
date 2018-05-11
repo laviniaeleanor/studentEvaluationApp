@@ -1,12 +1,12 @@
-import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
-import {getStudent, updateStudent} from '../../actions/students'
-import {getEvaluations, updateEvaluation, addEvaluation, updateLatestEvaluation} from '../../actions/evaluations'
-import {checkDate} from '../../logic/logic'
+import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+import { getEvaluations, updateEvaluation, addEvaluation, updateLatestEvaluation } from '../../actions/evaluations'
+import { getStudent, updateStudent } from '../../actions/students'
+import { checkDate } from '../../logic/logic'
 import StudentForm from '../batchpage/StudentForm'
-import Button from 'material-ui/Button';
+import EvaluationForm from './EvaluationForm'
+import Button from 'material-ui/Button'
 import Paper from 'material-ui/Paper'
-import NewEvaluation from './NewEvaluation'
 
 class StudentPage extends PureComponent {
 
@@ -28,7 +28,6 @@ class StudentPage extends PureComponent {
     }
 
     toggleEditEvaluation = (id) => {
-      console.log(id)
       this.setState({
         editEvaluation: !this.state.editEvaluation,
         selectedEvaluation: id
@@ -37,9 +36,9 @@ class StudentPage extends PureComponent {
 
     addEvaluation = (newEvaluation) => {
       if (!checkDate(this.props.evaluations, newEvaluation))  return alert("Only one evaluation per day allowed")
+
       this.props.addEvaluation(newEvaluation)
       this.props.updateLatestEvaluation(this.props.student.id, newEvaluation)
-      console.log('You submitted')
     }
 
     updateStudent = (student) => {
@@ -57,6 +56,7 @@ class StudentPage extends PureComponent {
 
       return(
         <Paper className="outer-paper">
+
           <h1>{student.name}</h1>
           {
             !this.state.editStudent &&
@@ -71,21 +71,26 @@ class StudentPage extends PureComponent {
             <img src={student.picture} alt={student.name} className='StudentPicture'/>
             {
               !this.state.editEvaluation &&
-                    <NewEvaluation onSubmit={this.addEvaluation}/>
+                    <EvaluationForm onSubmit={this.addEvaluation}/>
             }
           </div>
+
           <h2>Previous evaluations</h2>
+
           { evaluations.map(evaluation =>
             <div className= "evaluationsContainer">
               {
                 !this.state.editEvaluation &&
-                        <div><h3>{evaluation.date} : {evaluation.remarks}</h3><div className="evaluation" style={{backgroundColor: evaluation.evaluation}}></div>
-                          <Button onClick={() => this.toggleEditEvaluation(evaluation.id)}>Edit</Button></div>
+                        <div><h3>{evaluation.date} : {evaluation.remarks}</h3><div className="evaluation"
+                          style={{backgroundColor: evaluation.evaluation}}>
+                        </div>
+                        <Button onClick={() => this.toggleEditEvaluation(evaluation.id)}>Edit</Button>
+                        </div>
               }
 
               {
                 this.state.editEvaluation && this.state.selectedEvaluation === evaluation.id &&
-                        <NewEvaluation initialValues={evaluation} onSubmit={this.updateEvaluation} evaluationId={evaluation.id}/>
+                        <EvaluationForm initialValues={evaluation} onSubmit={this.updateEvaluation} evaluationId={evaluation.id}/>
               }
             </div>
           )}
@@ -100,4 +105,11 @@ const mapStateToProps = (state) => ({
   batch: state.batch
 })
 
-export default connect (mapStateToProps, {getStudent, getEvaluations, updateStudent, updateEvaluation, addEvaluation, updateLatestEvaluation})(StudentPage)
+export default connect (mapStateToProps, {
+  getStudent,
+  getEvaluations,
+  updateStudent,
+  updateEvaluation,
+  addEvaluation,
+  updateLatestEvaluation
+})(StudentPage)
