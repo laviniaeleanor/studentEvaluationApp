@@ -1,8 +1,9 @@
-import React, {PureComponent} from 'react'
-import Button from 'material-ui/Button';
+import React, { PureComponent } from 'react'
+import Button from 'material-ui/Button'
 import TextField from 'material-ui/TextField'
 
 export default class NewBatchForm extends PureComponent {
+
     state = {}
 
     handleSubmit = (e) => {
@@ -13,16 +14,16 @@ export default class NewBatchForm extends PureComponent {
 
     handleChange = (e) => {
       const {name, value} = e.target
-
       this.setState({
         [name] : value
       })
-    };
+    }
 
     render() {
 
       return(
         <form onSubmit={this.handleSubmit} className="NewBatchForm">
+
           <TextField
             id='batch'
             name='batchNum'
@@ -30,6 +31,7 @@ export default class NewBatchForm extends PureComponent {
             value={this.state.batchNum || ''}
             onChange={this.handleChange}
           />
+
           <TextField
             id='startDate'
             name='start'
@@ -37,6 +39,7 @@ export default class NewBatchForm extends PureComponent {
             value={this.state.start || ''}
             onChange={this.handleChange}
           />
+
           <TextField
             id='endDate'
             name='end'
@@ -44,14 +47,15 @@ export default class NewBatchForm extends PureComponent {
             value={this.state.end || ''}
             onChange={this.handleChange}
           />
+
           <Button
             type='submit'
             variant="raised"
             className="addBatch"
           >Add batch
           </Button>
+
         </form>
       )
-
     }
 }

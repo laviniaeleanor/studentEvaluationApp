@@ -1,9 +1,9 @@
-import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
-import {getBatches, addBatch} from '../../actions/batches'
-import ButtonBase from 'material-ui/ButtonBase'
-import {Redirect} from 'react-router-dom'
+import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import { getBatches, addBatch } from '../../actions/batches'
 import NewBatchForm from './NewBatchForm'
+import ButtonBase from 'material-ui/ButtonBase'
 import Card from 'material-ui/Card'
 
 class Homepage extends PureComponent {
@@ -59,4 +59,4 @@ const mapStateToProps = (state) => ({
   batches: state.batches
 })
 
-export default connect (mapStateToProps, {getBatches, addBatch})(Homepage)
+export default connect (mapStateToProps, { getBatches, addBatch })(Homepage)

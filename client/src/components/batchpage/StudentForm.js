@@ -1,9 +1,6 @@
-import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
+import React, { PureComponent } from 'react'
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField'
-import {addStudent} from '../../actions/students'
-
 
 export default class StudentForm extends PureComponent {
 
@@ -14,10 +11,8 @@ export default class StudentForm extends PureComponent {
       this.props.onSubmit(this.state)
     }
 
-
     handleChange = (e) => {
       const {name, value} = e.target
-
       this.setState({
         batch: this.props.batch.id,
         [name] : value
@@ -29,7 +24,9 @@ export default class StudentForm extends PureComponent {
 
       return(
         <form onSubmit={this.handleSubmit} className="NewBatchForm">
+
           <h3>Insert full name and picture url:</h3>
+
           <TextField
             id='name'
             name='name'
@@ -37,6 +34,7 @@ export default class StudentForm extends PureComponent {
             value={this.state.name || initialValues.name || ''}
             onChange={this.handleChange}
           />
+
           <TextField
             id='picture'
             name='picture'
@@ -44,13 +42,14 @@ export default class StudentForm extends PureComponent {
             value={this.state.picture || initialValues.picture || ''}
             onChange={this.handleChange}
           />
+
           <Button
             type='submit'
             color="secondary"
             variant="raised"
             className="addStudent"
-          > Save
-          </Button>
+          > Save </Button>
+
         </form>
       )
     }

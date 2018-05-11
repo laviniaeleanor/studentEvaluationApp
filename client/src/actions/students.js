@@ -1,5 +1,4 @@
 import * as request from 'superagent'
-// import {isExpired} from '../jwt'
 
 const baseUrl = 'http://localhost:4001'
 
@@ -23,8 +22,6 @@ export const getStudents = (batchId) => (dispatch) => {
 }
 
 export const addStudent = (student) => (dispatch) => {
-  console.log(student)
-
   request
     .post(`${baseUrl}/students`)
     .send(student)

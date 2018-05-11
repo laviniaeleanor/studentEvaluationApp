@@ -1,6 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 import { BaseEntity } from 'typeorm/repository/BaseEntity'
 
+export type EvaluationColor = 'red' | 'green' | 'yellow' | 'grey'
+
 @Entity()
 export default class Evaluation extends BaseEntity {
 
@@ -17,7 +19,7 @@ export default class Evaluation extends BaseEntity {
   date: Date
 
   @Column('text', { nullable: false })
-  evaluation: string
+  evaluation: EvaluationColor
 
   @Column('text', { nullable: true })
   remarks?: string

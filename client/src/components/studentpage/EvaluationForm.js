@@ -1,13 +1,13 @@
-import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
-import Button from 'material-ui/Button';
+import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { updateLatestEvaluation } from '../../actions/evaluations'
+import { getCurrentDate, getNextStudent } from '../../logic/logic'
+import { colors } from '../../constants'
 import TextField from 'material-ui/TextField'
-import {updateLatestEvaluation} from '../../actions/evaluations'
-import {Link} from 'react-router-dom'
-import {getCurrentDate, getNextStudent} from '../../logic/logic'
-import {colors} from '../../constants'
+import Button from 'material-ui/Button';
 
-class NewEvaluation extends PureComponent {
+class EvaluationForm extends PureComponent {
 
     state = {}
 
@@ -35,8 +35,6 @@ class NewEvaluation extends PureComponent {
         date: getCurrentDate(),
         [name] : value
       })
-
-      console.log(this.state)
     };
 
 
@@ -46,6 +44,7 @@ class NewEvaluation extends PureComponent {
 
       return(
         <form onSubmit={this.handleSubmit}>
+
           <div className="Buttons">
             <Button
               style={{backgroundColor: colors.green, color: '#FFF', margin: 15, padding: 16}}
@@ -53,12 +52,14 @@ class NewEvaluation extends PureComponent {
               value="green"
               onClick={this.handleChange}
             >Good</Button>
+
             <Button
               style={{backgroundColor: colors.yellow, color: '#FFF', margin: 15, padding: 16}}
               name = "evaluation"
               value="yellow"
               onClick={this.handleChange}
             >Medium</Button>
+
             <Button
               style={{backgroundColor: colors.red, color: '#FFF', margin: 15, padding: 16}}
               name = "evaluation"
@@ -66,6 +67,7 @@ class NewEvaluation extends PureComponent {
               onClick={this.handleChange}
             >Negative</Button>
           </div>
+
           <TextField
             id='date'
             name='date'
@@ -73,6 +75,7 @@ class NewEvaluation extends PureComponent {
             value={this.state.date || initialValues.date || getCurrentDate()}
             onChange={this.handleChange}
           />
+
           <TextField
             id='remarks'
             name='remarks'
@@ -80,6 +83,7 @@ class NewEvaluation extends PureComponent {
             value={this.state.remarks || initialValues.remarks || ''}
             onChange={this.handleChange}
           />
+
           <Button
             type='submit'
             color="secondary"
@@ -87,6 +91,7 @@ class NewEvaluation extends PureComponent {
             className="addStudent"
           >Save
           </Button>
+
           { nextStudent &&
           <Button
             type='submit'
@@ -95,18 +100,18 @@ class NewEvaluation extends PureComponent {
             className="addStudent"
           ><Link to = {`/students/${nextStudent.id}`}>Save and Next</Link>
           </Button>}
+
         </form>
       )
     }
 }
 
 
-const mapStateToProps = function (state) {
-  return {
-    evaluations: state.evaluations,
-    student: state.student,
-    students: state.students
-  }
-}
+const mapStateToProps = (state) => ({
+  evaluations: state.evaluations,
+  student: state.student,
+  students: state.students
+})
 
-export default connect(mapStateToProps, {updateLatestEvaluation})(NewEvaluation)
+
+export default connect(mapStateToProps, {updateLatestEvaluation})(EvaluationForm)

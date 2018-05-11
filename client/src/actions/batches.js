@@ -27,26 +27,26 @@ export const getBatches = () => (dispatch, getState) => {
 }
 
 export const getBatch = (id) => (dispatch) => {
-	request
-	.get(`${baseUrl}/batches/${id}`)
+  request
+    .get(`${baseUrl}/batches/${id}`)
     .then(result => {
       dispatch({
         type: GET_BATCH,
-		payload: result.body
+    	payload: result.body
       })
     })
     .catch(err => console.error(err))
 }
 
 export const addBatch = (batch) => (dispatch) => {
-    request
+  request
     .post(`${baseUrl}/batches`)
     .send(batch)
     .then(result => {
-        dispatch({
-            type: ADD_BATCH,
-            payload: result.body
-        })
+      dispatch({
+        type: ADD_BATCH,
+        payload: result.body
+      })
     })
     .catch(err => console.error(err))
 }
