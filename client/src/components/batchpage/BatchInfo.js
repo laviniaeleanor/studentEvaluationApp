@@ -11,10 +11,10 @@ export default class BatchInfo extends PureComponent {
     return(
       <div className="BatchInfo">
 
-        <div className = "Percentage" style={{backgroundColor : colors.green}}>Good: {percentages.green}%</div>
-        <div className = "Percentage" style={{backgroundColor : colors.yellow}}>Medium: {percentages.yellow}%</div>
-        <div className = "Percentage" style={{backgroundColor : colors.red}}>Negative: {percentages.red}%</div>
-        <div className = "Percentage" style={{backgroundColor : colors.grey}}>Not yet evaluated: {percentages.grey}%</div>
+        <div className = "Percentage" style={{backgroundColor : colors.green}}>Good: {percentages.green.toFixed(2)}%</div>
+        <div className = "Percentage" style={{backgroundColor : colors.yellow}}>Medium: {percentages.yellow.toFixed(2)}%</div>
+        <div className = "Percentage" style={{backgroundColor : colors.red}}>Negative: {percentages.red.toFixed(2)}%</div>
+        <div className = "Percentage" style={{backgroundColor : colors.grey}}>Not yet evaluated: {percentages.grey.toFixed(2)}%</div>
 
       </div>
     )
