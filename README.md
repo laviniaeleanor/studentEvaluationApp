@@ -1,5 +1,7 @@
 # Student Evaluation App
 
+![alt text](https://github.com/laviniaeleanor/studentEvaluationApp/raw/master/Screenshot.png "Screenshot")
+
 For the final assignment at [Codaisseur](https://codaisseur.com) we had to make an application that allowed teachers
 to evaluation students.
 
