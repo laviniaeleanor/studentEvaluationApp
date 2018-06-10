@@ -102,7 +102,12 @@ class StudentPage extends PureComponent {
             fullWidth= {true}
             maxWidth= {'md'}
             style={{ padding: 30}}>
-              <DialogTitle>Evaluate {student.name}</DialogTitle>
+              <h1 style={{
+                fontFamily: 'Poppins',
+                fontSize: 26,
+                marginLeft: 40,
+                marginTop: 40 
+              }}>Evaluate {student.name}</h1>
               <div className="edit-student">
                 <EvaluationForm className="edit-student" onSubmit={this.addEvaluation} batch={batch}/>
               </div>

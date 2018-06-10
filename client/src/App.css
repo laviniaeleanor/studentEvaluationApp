@@ -212,6 +212,8 @@
 .Buttons {
     display: flex;
     flex-direction: row;
+    margin:0 20px 20px 20px;
+    flex-wrap: wrap;
 }
 
 .evaluation-buttons {
@@ -226,6 +228,35 @@
     font-size: 20px;
 }
 
+.green{
+    color: rgb(102, 187, 106);
+    border-color: rgb(102, 187, 106);    
+}
+
+.yellow {
+    color: rgb(245, 183, 35);
+    border-color: rgb(245, 183, 35);
+}
+
+.red {
+    color: rgb(211, 47, 47);
+    border-color: rgb(211, 47, 47)    
+}
+
+.green:hover {
+    color: #fff;
+    background-color: rgb(102, 187, 106);
+}
+
+.yellow:hover {
+    background-color: rgb(245, 183, 35);
+    color: #fff;
+}
+
+.red:hover {
+    background-color: rgb(211, 47, 47);
+    color: #fff;
+}
 .PictureAndForm {
     width: 350px; 
 }
@@ -271,6 +302,7 @@
 .edit-student-button{
     margin-left:35px;
     text-decoration: underline;
+    font-family: 'Roboto';
 }
 
 .student-page-table {
@@ -282,4 +314,11 @@
 .student-page-table h1 {
     padding: 20px;
     font-weight: normal;
+}
+
+.evaluation-date-remark {
+    display: flex;
+    margin-left: 35px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
 }
