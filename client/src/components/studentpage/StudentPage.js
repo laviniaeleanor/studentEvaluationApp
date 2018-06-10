@@ -8,6 +8,21 @@ import EvaluationForm from './EvaluationForm'
 import Button from 'material-ui/Button'
 import Paper from 'material-ui/Paper'
 import Dialog from 'material-ui/Dialog'
+import { DialogTitle } from 'material-ui';
+import Table from 'material-ui/Table';
+import TableBody from 'material-ui/Table/TableBody';
+import TableCell from 'material-ui/Table/TableCell';
+import TableHead from 'material-ui/Table/TableHead';
+import TableRow from 'material-ui/Table/TableRow';
+
+function getEvaluation(color) {
+  switch(color){
+    case "green" : return "Good"
+    case "yellow": return "Medium"
+    case "red": return "Negative"
+    default : return ""
+  }
+}
 
 class StudentPage extends PureComponent {
 
@@ -56,7 +71,7 @@ class StudentPage extends PureComponent {
       const {batch, student, evaluations} = this.props
 
       return(
-        <div>
+        <div className="student-page">
         <Paper className="student-page-main">
 
           <div className="PictureAndForm">
@@ -67,39 +82,59 @@ class StudentPage extends PureComponent {
             <h1 class='student-page-studentname'>{student.name}</h1>
             <a className= "edit-student-button" onClick={this.toggleEditStudent}>Edit Student Information</a>
             <br></br>
-          {
-            this.state.editStudent &&
-                    <Dialog open={this.state.editStudent}
-                    onClose={this.toggleEditStudent}><StudentForm className="edit-student" initialValues={student} onSubmit={this.updateStudent} batch={batch}/></Dialog>
-          }
+
+            <Dialog open={this.state.editStudent}
+            onClose={this.toggleEditStudent}
+            fullWidth= {true}
+            maxWidth= {'md'}
+            style={{ padding: 30}}>
+              <DialogTitle>Edit Student Information</DialogTitle>
+              <div className="edit-student">
+              <StudentForm className="edit-student" initialValues={student} onSubmit={this.updateStudent} batch={batch}/>
+              </div>
+            </Dialog>
+          
             <Button
             color="secondary"
             variant="raised"
             className="addStudent"
-            style={{ marginLeft: 35, marginTop:55, fontSize:18,  marginBottom: 15 }}>Evaluate Student</Button>
+            style={{ marginLeft: 35, marginTop:55, fontSize:18,  marginBottom: 15 }}>
+            Evaluate Student</Button>
           </div>
         </Paper>
-
-          <h2>Previous evaluations</h2>
+        <Paper className= "student-page-table">
+          <h1>Previous evaluations</h1>
+          <TableRow>
+            <TableHead>
+              <TableRow>
+                <TableCell>Evaluation</TableCell>
+                <TableCell>Remarks</TableCell>
+                <TableCell>Date</TableCell>
+                <TableCell></TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>      
 
           { evaluations.map(evaluation =>
-            <div className= "evaluationsContainer">
-              {
-                !this.state.editEvaluation &&
-                        <div><h3>{evaluation.date} : {evaluation.remarks}</h3><div className="evaluation"
-                          style={{backgroundColor: evaluation.evaluation}}>
-                        </div>
-                        <Button onClick={() => this.toggleEditEvaluation(evaluation.id)}>Edit</Button>
-                        </div>
-              }
-
+            <TableRow key={evaluation.id}>
+              <TableCell>
+                <div className="evaluation"
+                  style={{backgroundColor: evaluation.evaluation}}><p>{getEvaluation(evaluation.evaluation)}</p></div>
+              </TableCell>
               {
                 this.state.editEvaluation && this.state.selectedEvaluation === evaluation.id &&
                         <EvaluationForm initialValues={evaluation} onSubmit={this.updateEvaluation} evaluationId={evaluation.id}/>
               }
-            </div>
+              <TableCell>
+                {evaluation.remarks || "-"}
+              </TableCell>
+              <TableCell>{evaluation.date}</TableCell>
+              <TableCell><a>Edit</a></TableCell>
+            </TableRow>
           )}
-       
+          </TableBody>
+          </TableRow>
+        </Paper>
         </div>
       )
     }
@@ -124,4 +159,19 @@ export default connect (mapStateToProps, {
 //{
 //   !this.state.editEvaluation &&
 //   <EvaluationForm onSubmit={this.addEvaluation}/>
+// }
+
+// {
+//   !this.state.editEvaluation &&
+//   <div>
+    
+    
+    
+    
+    
+//     <h3>{evaluation.date} : {evaluation.remarks}</h3><div className="evaluation"
+//     style={{backgroundColor: evaluation.evaluation}}>
+//   </div>
+//   <Button onClick={() => this.toggleEditEvaluation(evaluation.id)}>Edit</Button>
+//   </TableRow>
 // }

@@ -186,8 +186,9 @@
 }
 
 .evaluation {
-    height: 15px;
-    width: 300px;
+    height: 25px;
+    width: 100px;
+    border-radius: 16px;
 }
 
 #RandomStudent {
@@ -205,14 +206,17 @@
     width: 350px; 
 }
 
+.student-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .student-page-main {
     width: 50%;
-    position: absolute;
-    top: 10%;
-    left:50%;
-    transform: translateX(-50%);
     display: flex;
     flex-wrap: wrap;
+    margin: 40px;
 }
 
 .student-page-picture {
@@ -236,9 +240,16 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    margin: 5px;
 }
 
 .edit-student-button{
     margin-left:35px;
     text-decoration: underline;
+}
+
+.student-page-table {
+    width: 50%;
+    /* display: flex;
+    flex-direction: column; */
 }
