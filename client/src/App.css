@@ -204,3 +204,11 @@
 .PictureAndForm {
     display: flex
 }
+
+.student-page-main {
+    max-width: 60%;
+    position: absolute;
+    top: 10%;
+    left:50%;
+    transform: translateX(-50%)
+}

@@ -55,7 +55,8 @@ class StudentPage extends PureComponent {
       const {batch, student, evaluations} = this.props
 
       return(
-        <Paper className="outer-paper">
+        <div>
+        <Paper className="student-page-main">
 
           <h1>{student.name}</h1>
           {
@@ -74,6 +75,7 @@ class StudentPage extends PureComponent {
                     <EvaluationForm onSubmit={this.addEvaluation}/>
             }
           </div>
+          </Paper>
 
           <h2>Previous evaluations</h2>
 
@@ -94,7 +96,8 @@ class StudentPage extends PureComponent {
               }
             </div>
           )}
-        </Paper>
+       
+        </div>
       )
     }
 }
