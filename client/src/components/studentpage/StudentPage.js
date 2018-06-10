@@ -16,6 +16,7 @@ class StudentPage extends PureComponent {
 
     state = {
       editStudent: false,
+      addEvaluation: false,
       editEvaluation: false,
       selectedEvaluation: 0
     }
@@ -28,6 +29,12 @@ class StudentPage extends PureComponent {
     toggleEditStudent = () => {
       this.setState({
         editStudent: !this.state.editStudent
+      })
+    }
+
+    toggleAddEvaluation = () => {
+      this.setState({
+        addEvaluation: !this.state.addEvaluation
       })
     }
 
@@ -78,7 +85,7 @@ class StudentPage extends PureComponent {
             style={{ padding: 30}}>
               <DialogTitle>Edit Student Information</DialogTitle>
               <div className="edit-student">
-              <StudentForm className="edit-student" initialValues={student} onSubmit={this.updateStudent} batch={batch}/>
+                <StudentForm className="edit-student" initialValues={student} onSubmit={this.updateStudent} batch={batch}/>
               </div>
             </Dialog>
           
@@ -86,8 +93,21 @@ class StudentPage extends PureComponent {
             color="secondary"
             variant="raised"
             className="addStudent"
-            style={{ marginLeft: 35, marginTop:55, fontSize:18,  marginBottom: 15 }}>
+            style={{ marginLeft: 35, marginTop:55, fontSize:18,  marginBottom: 15 }}
+            onClick={this.toggleAddEvaluation}>
             Evaluate Student</Button>
+
+            <Dialog open={this.state.addEvaluation}
+            onClose={this.toggleAddEvaluation}
+            fullWidth= {true}
+            maxWidth= {'md'}
+            style={{ padding: 30}}>
+              <DialogTitle>Evaluate {student.name}</DialogTitle>
+              <div className="edit-student">
+                <EvaluationForm className="edit-student" onSubmit={this.addEvaluation} batch={batch}/>
+              </div>
+            </Dialog>
+
           </div>
         </Paper>
         <Paper className= "student-page-table">

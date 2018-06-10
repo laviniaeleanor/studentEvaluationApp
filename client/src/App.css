@@ -211,9 +211,19 @@
 
 .Buttons {
     display: flex;
-    flex-direction: column;
-    width: 40px;
-    justify-content: space-between;
+    flex-direction: row;
+}
+
+.evaluation-buttons {
+    background-color: #FFF;
+    margin: 15px;
+    width: 120px;
+    font-family: 'Roboto';
+    font-weight: 400;
+    border: 2px solid;
+    padding: 15px; 
+    border-radius: 30px;
+    font-size: 20px;
 }
 
 .PictureAndForm {
@@ -243,6 +253,7 @@
 .student-page-studentname {
     margin-left:35px;
     margin-top: 40px;
+    font-family: 'Poppins'
 }
 
 .student-page-name-button {

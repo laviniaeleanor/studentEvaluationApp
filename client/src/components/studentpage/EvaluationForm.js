@@ -46,26 +46,38 @@ class EvaluationForm extends PureComponent {
         <form onSubmit={this.handleSubmit}>
 
           <div className="Buttons">
-            <Button
-              style={{backgroundColor: colors.green, color: '#FFF', margin: 15, padding: 16}}
+            <button
+              style={{
+              color: colors.green, 
+              borderColor: colors.green
+             }}
+             className = "evaluation-buttons"
               name = "evaluation"
               value="green"
               onClick={this.handleChange}
-            >Good</Button>
+            >Good</button>
 
-            <Button
-              style={{backgroundColor: colors.yellow, color: '#FFF', margin: 15, padding: 16}}
+            <button
+              style={{
+              color: colors.yellow, 
+              borderColor: colors.yellow
+              }}
+             className = "evaluation-buttons"              
               name = "evaluation"
               value="yellow"
               onClick={this.handleChange}
-            >Medium</Button>
+            >Medium</button>
 
-            <Button
-              style={{backgroundColor: colors.red, color: '#FFF', margin: 15, padding: 16}}
+            <button
+              style={{
+              color: colors.red, 
+              borderColor: colors.red
+              }}
+             className = "evaluation-buttons"              
               name = "evaluation"
               value="red"
               onClick={this.handleChange}
-            >Negative</Button>
+            >Negative</button>
           </div>
 
           <TextField
