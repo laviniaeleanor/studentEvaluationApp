@@ -46,60 +46,56 @@ class EvaluationForm extends PureComponent {
         <form onSubmit={this.handleSubmit}>
 
           <div className="Buttons">
-            <Button
-              style={{backgroundColor: colors.green, color: '#FFF', margin: 15, padding: 16}}
+            <button
+             className = "evaluation-buttons green"
               name = "evaluation"
               value="green"
               onClick={this.handleChange}
-            >Good</Button>
+            >Good</button>
 
-            <Button
-              style={{backgroundColor: colors.yellow, color: '#FFF', margin: 15, padding: 16}}
+            <button
+              className = "evaluation-buttons yellow"   
               name = "evaluation"
               value="yellow"
               onClick={this.handleChange}
-            >Medium</Button>
+            >Medium</button>
 
-            <Button
-              style={{backgroundColor: colors.red, color: '#FFF', margin: 15, padding: 16}}
+            <button
+              className = "evaluation-buttons red"            
               name = "evaluation"
               value="red"
               onClick={this.handleChange}
-            >Negative</Button>
+            >Negative</button>
           </div>
 
-          <TextField
-            id='date'
-            name='date'
-            label='Evaluation Date'
-            value={this.state.date || initialValues.date || getCurrentDate()}
-            onChange={this.handleChange}
-          />
-
+          <div className='evaluation-date-remark'>
           <TextField
             id='remarks'
             name='remarks'
             label='Remarks'
             value={this.state.remarks || initialValues.remarks || ''}
             onChange={this.handleChange}
+            style={{marginRight: 35, width: 300}}
           />
 
-          <Button
-            type='submit'
-            color="secondary"
-            variant="raised"
-            className="addStudent"
-          >Save
-          </Button>
+            <TextField
+              id='date'
+              name='date'
+              label='Evaluation Date'
+              value={this.state.date || initialValues.date || getCurrentDate()}
+              onChange={this.handleChange}
+              style={{marginRight: 35, width: 300}}
+            />
 
-          { nextStudent &&
-          <Button
-            type='submit'
-            color="secondary"
-            variant="raised"
-            className="addStudent"
-          ><Link to = {`/students/${nextStudent.id}`}>Save and Next</Link>
-          </Button>}
+            <Button
+              type='submit'
+              color="secondary"
+              variant="raised"
+              className="addStudent"
+              style={{marginRight: 35}}
+            >Save
+            </Button>
+          </div>
 
         </form>
       )

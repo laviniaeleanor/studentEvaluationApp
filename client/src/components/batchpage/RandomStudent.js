@@ -22,7 +22,7 @@ class RandomStudent extends PureComponent {
 
         <img src={randomStudent.picture} alt={randomStudent.name} className="StudentPicture"/>
 
-        <h2>{randomStudent.name}</h2>
+        <h2 style={{fontFamily: "Poppins", marginLeft: 14, marginRight: 5}}>{randomStudent.name}</h2>
       </div>
     )
   }

@@ -74,6 +74,7 @@
 .NewBatchForm {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .createQuiz {
@@ -185,9 +186,24 @@
     align-self: flex-start;
 }
 
-.evaluation {
+.evaluation-bottom {
     height: 15px;
     width: 300px;
+}
+
+.evaluation {
+    height: 30px;
+    width: 120px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.evaluation p {
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 #RandomStudent {
@@ -196,11 +212,114 @@
 
 .Buttons {
     display: flex;
-    flex-direction: column;
-    width: 40px;
-    justify-content: space-between;
+    flex-direction: row;
+    margin:0 20px 20px 20px;
+    flex-wrap: wrap;
 }
 
+.evaluation-buttons {
+    background-color: #FFF;
+    margin: 15px;
+    width: 120px;
+    font-family: 'Roboto';
+    font-weight: 400;
+    border: 2px solid;
+    padding: 15px; 
+    border-radius: 30px;
+    font-size: 20px;
+}
+
+.green{
+    color: rgb(102, 187, 106);
+    border-color: rgb(102, 187, 106);    
+}
+
+.yellow {
+    color: rgb(245, 183, 35);
+    border-color: rgb(245, 183, 35);
+}
+
+.red {
+    color: rgb(211, 47, 47);
+    border-color: rgb(211, 47, 47)    
+}
+
+.green:hover {
+    color: #fff;
+    background-color: rgb(102, 187, 106);
+}
+
+.yellow:hover {
+    background-color: rgb(245, 183, 35);
+    color: #fff;
+}
+
+.red:hover {
+    background-color: rgb(211, 47, 47);
+    color: #fff;
+}
 .PictureAndForm {
-    display: flex
+    width: 350px; 
+}
+
+.student-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.student-page-main {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px;
+}
+
+.student-page-picture {
+    width: 100%;
+    height: auto;
+    align-self: flex-start;
+    margin: 5px;
+}
+
+.student-page-studentname {
+    margin-left:35px;
+    margin-top: 40px;
+    font-family: 'Poppins'
+}
+
+.student-page-name-button {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-student {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 35px;
+}
+
+.edit-student-button{
+    margin-left:35px;
+    text-decoration: underline;
+    font-family: 'Roboto';
+}
+
+.student-page-table {
+    width: 50%;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.student-page-table h1 {
+    padding: 20px;
+    font-weight: normal;
+}
+
+.evaluation-date-remark {
+    display: flex;
+    margin-left: 35px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
 }

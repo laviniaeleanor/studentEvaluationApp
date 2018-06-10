@@ -50,11 +50,11 @@ class BatchPage extends PureComponent {
                   <Link to ={`/students/${student.id}`}> <img className="StudentPicture" src={student.picture} alt={student.name}/></Link>
                 </div>
 
-                <h2>{student.name}</h2>
+                <h2 style={{fontFamily: "Poppins", marginLeft: 14, marginRight: 5}}>{student.name}</h2>
 
                 <Button onClick={() => this.deleteStudent(student.id)}>Delete Student</Button>
 
-                <div className="evaluation" style={{backgroundColor: getEvaluationColor(student.latestEvaluation, colors)}}></div>
+                <div className="evaluation-bottom" style={{backgroundColor: getEvaluationColor(student.latestEvaluation, colors), marginTop: -6}}></div>
 
               </Card>
             )}
