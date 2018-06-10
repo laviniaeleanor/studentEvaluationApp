@@ -7,6 +7,7 @@ import StudentForm from '../batchpage/StudentForm'
 import EvaluationForm from './EvaluationForm'
 import Button from 'material-ui/Button'
 import Paper from 'material-ui/Paper'
+import Dialog from 'material-ui/Dialog'
 
 class StudentPage extends PureComponent {
 
@@ -58,24 +59,26 @@ class StudentPage extends PureComponent {
         <div>
         <Paper className="student-page-main">
 
-          <h1>{student.name}</h1>
-          {
-            !this.state.editStudent &&
-                    <Button onClick={this.toggleEditStudent}>Edit Student Information</Button>
-          }
-          <br></br>
+          <div className="PictureAndForm">
+            <img src={student.picture} alt={student.name} className='student-page-picture'/>
+            
+          </div>
+          <div className="student-page-name-button">
+            <h1 class='student-page-studentname'>{student.name}</h1>
+            <a className= "edit-student-button" onClick={this.toggleEditStudent}>Edit Student Information</a>
+            <br></br>
           {
             this.state.editStudent &&
-                    <StudentForm initialValues={student} onSubmit={this.updateStudent} batch={batch}/>
+                    <Dialog open={this.state.editStudent}
+                    onClose={this.toggleEditStudent}><StudentForm className="edit-student" initialValues={student} onSubmit={this.updateStudent} batch={batch}/></Dialog>
           }
-          <div className="PictureAndForm">
-            <img src={student.picture} alt={student.name} className='StudentPicture'/>
-            {
-              !this.state.editEvaluation &&
-                    <EvaluationForm onSubmit={this.addEvaluation}/>
-            }
+            <Button
+            color="secondary"
+            variant="raised"
+            className="addStudent"
+            style={{ marginLeft: 35, marginTop:55, fontSize:18,  marginBottom: 15 }}>Evaluate Student</Button>
           </div>
-          </Paper>
+        </Paper>
 
           <h2>Previous evaluations</h2>
 
@@ -116,3 +119,9 @@ export default connect (mapStateToProps, {
   addEvaluation,
   updateLatestEvaluation
 })(StudentPage)
+
+
+//{
+//   !this.state.editEvaluation &&
+//   <EvaluationForm onSubmit={this.addEvaluation}/>
+// }

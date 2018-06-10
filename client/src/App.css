@@ -202,13 +202,43 @@
 }
 
 .PictureAndForm {
-    display: flex
+    width: 350px; 
 }
 
 .student-page-main {
-    max-width: 60%;
+    width: 50%;
     position: absolute;
     top: 10%;
     left:50%;
-    transform: translateX(-50%)
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.student-page-picture {
+    width: 100%;
+    height: auto;
+    align-self: flex-start;
+    margin: 5px;
+}
+
+.student-page-studentname {
+    margin-left:35px;
+    margin-top: 40px;
+}
+
+.student-page-name-button {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-student {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.edit-student-button{
+    margin-left:35px;
+    text-decoration: underline;
 }
