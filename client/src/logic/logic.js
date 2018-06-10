@@ -97,3 +97,12 @@ export function getEvaluationColor(evaluation, colors){
     return colors.grey
   }
 }
+
+export function getEvaluation(color) {
+  switch(color){
+    case "green" : return "Good"
+    case "yellow": return "Medium"
+    case "red": return "Negative"
+    default : return ""
+  }
+}

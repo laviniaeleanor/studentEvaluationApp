@@ -2,9 +2,10 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { getEvaluations, updateEvaluation, addEvaluation, updateLatestEvaluation } from '../../actions/evaluations'
 import { getStudent, updateStudent } from '../../actions/students'
-import { checkDate } from '../../logic/logic'
+import { checkDate, getEvaluationColor, getEvaluation } from '../../logic/logic'
 import StudentForm from '../batchpage/StudentForm'
 import EvaluationForm from './EvaluationForm'
+import { colors } from '../../constants'
 import Button from 'material-ui/Button'
 import Paper from 'material-ui/Paper'
 import Dialog from 'material-ui/Dialog'
@@ -14,15 +15,6 @@ import TableBody from 'material-ui/Table/TableBody';
 import TableCell from 'material-ui/Table/TableCell';
 import TableHead from 'material-ui/Table/TableHead';
 import TableRow from 'material-ui/Table/TableRow';
-
-function getEvaluation(color) {
-  switch(color){
-    case "green" : return "Good"
-    case "yellow": return "Medium"
-    case "red": return "Negative"
-    default : return ""
-  }
-}
 
 class StudentPage extends PureComponent {
 
@@ -119,7 +111,7 @@ class StudentPage extends PureComponent {
             <TableRow key={evaluation.id}>
               <TableCell>
                 <div className="evaluation"
-                  style={{backgroundColor: evaluation.evaluation}}><p>{getEvaluation(evaluation.evaluation)}</p></div>
+                  style={{backgroundColor: getEvaluationColor(evaluation.evaluation, colors)}}><p>{getEvaluation(evaluation.evaluation)}</p></div>
               </TableCell>
               {
                 this.state.editEvaluation && this.state.selectedEvaluation === evaluation.id &&
