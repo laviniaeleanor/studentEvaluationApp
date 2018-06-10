@@ -185,9 +185,14 @@
     align-self: flex-start;
 }
 
+.evaluation-bottom {
+    height: 15px;
+    width: 300px;
+}
+
 .evaluation {
-    height: 25px;
-    width: 100px;
+    height: 30px;
+    width: 120px;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -196,7 +201,8 @@
 
 .evaluation p {
     color: #fff;
-    font-weight: bold
+    font-weight: bold;
+    font-size: 16px;
 }
 
 #RandomStudent {
@@ -260,4 +266,9 @@
     width: 50%;
     /* display: flex;
     flex-direction: column; */
+}
+
+.student-page-table h1 {
+    padding: 20px;
+    font-weight: normal;
 }

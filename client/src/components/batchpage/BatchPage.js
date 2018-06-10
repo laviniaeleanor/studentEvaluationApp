@@ -54,7 +54,7 @@ class BatchPage extends PureComponent {
 
                 <Button onClick={() => this.deleteStudent(student.id)}>Delete Student</Button>
 
-                <div className="evaluation" style={{backgroundColor: getEvaluationColor(student.latestEvaluation, colors)}}></div>
+                <div className="evaluation-bottom" style={{backgroundColor: getEvaluationColor(student.latestEvaluation, colors)}}></div>
 
               </Card>
             )}

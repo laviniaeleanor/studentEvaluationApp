@@ -2,19 +2,15 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { getEvaluations, updateEvaluation, addEvaluation, updateLatestEvaluation } from '../../actions/evaluations'
 import { getStudent, updateStudent } from '../../actions/students'
-import { checkDate, getEvaluationColor, getEvaluation } from '../../logic/logic'
+import { checkDate} from '../../logic/logic'
 import StudentForm from '../batchpage/StudentForm'
 import EvaluationForm from './EvaluationForm'
+import EvaluationTable from './EvaluationTable'
 import { colors } from '../../constants'
 import Button from 'material-ui/Button'
 import Paper from 'material-ui/Paper'
 import Dialog from 'material-ui/Dialog'
 import { DialogTitle } from 'material-ui';
-import Table from 'material-ui/Table';
-import TableBody from 'material-ui/Table/TableBody';
-import TableCell from 'material-ui/Table/TableCell';
-import TableHead from 'material-ui/Table/TableHead';
-import TableRow from 'material-ui/Table/TableRow';
 
 class StudentPage extends PureComponent {
 
@@ -96,36 +92,7 @@ class StudentPage extends PureComponent {
         </Paper>
         <Paper className= "student-page-table">
           <h1>Previous evaluations</h1>
-          <TableRow>
-            <TableHead>
-              <TableRow>
-                <TableCell>Evaluation</TableCell>
-                <TableCell>Remarks</TableCell>
-                <TableCell>Date</TableCell>
-                <TableCell></TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>      
-
-          { evaluations.map(evaluation =>
-            <TableRow key={evaluation.id}>
-              <TableCell>
-                <div className="evaluation"
-                  style={{backgroundColor: getEvaluationColor(evaluation.evaluation, colors)}}><p>{getEvaluation(evaluation.evaluation)}</p></div>
-              </TableCell>
-              {
-                this.state.editEvaluation && this.state.selectedEvaluation === evaluation.id &&
-                        <EvaluationForm initialValues={evaluation} onSubmit={this.updateEvaluation} evaluationId={evaluation.id}/>
-              }
-              <TableCell>
-                {evaluation.remarks || "-"}
-              </TableCell>
-              <TableCell>{evaluation.date}</TableCell>
-              <TableCell><a>Edit</a></TableCell>
-            </TableRow>
-          )}
-          </TableBody>
-          </TableRow>
+          <EvaluationTable evaluations = {evaluations}/>
         </Paper>
         </div>
       )
