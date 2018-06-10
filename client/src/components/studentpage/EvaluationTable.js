@@ -25,7 +25,7 @@ export default class EvaluationTable extends PureComponent {
                 {evaluation.remarks || "-"}
               </TableCell>
               <TableCell style={{fontSize: 16, padding: 20}}>{evaluation.date}</TableCell>
-              <TableCell style={{fontSize: 16, padding: 20}}><a>Edit</a></TableCell>
+              <TableCell style={{fontSize: 16, padding: 20}}><a onClick={() => this.props.toggle(evaluation.id)}>Edit</a></TableCell>
             </TableRow>
         )
     }

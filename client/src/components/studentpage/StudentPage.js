@@ -83,7 +83,12 @@ class StudentPage extends PureComponent {
             fullWidth= {true}
             maxWidth= {'md'}
             style={{ padding: 30}}>
-              <DialogTitle>Edit Student Information</DialogTitle>
+              <h1 style={{
+                fontFamily: 'Poppins',
+                fontSize: 26,
+                marginLeft: 40,
+                marginTop: 40 
+              }}>Edit Student Information</h1>
               <div className="edit-student">
                 <StudentForm className="edit-student" initialValues={student} onSubmit={this.updateStudent} batch={batch}/>
               </div>
@@ -113,11 +118,27 @@ class StudentPage extends PureComponent {
               </div>
             </Dialog>
 
+            <Dialog open={this.state.editEvaluation}
+            onClose={this.toggleEditEvaluation}
+            fullWidth= {true}
+            maxWidth= {'md'}
+            style={{ padding: 30}}>
+              <h1 style={{
+                fontFamily: 'Poppins',
+                fontSize: 26,
+                marginLeft: 40,
+                marginTop: 40 
+              }}>Edit the evaluation</h1>
+              <div className="edit-student">
+                <EvaluationForm className="edit-student" onSubmit={this.updateEvaluation} batch={batch}/>
+              </div>
+            </Dialog>
+
           </div>
         </Paper>
         <Paper className= "student-page-table">
           <h1>Previous evaluations</h1>
-          <EvaluationTable evaluations = {evaluations}/>
+          <EvaluationTable evaluations = {evaluations} toggle={this.toggleEditEvaluation}/>
         </Paper>
         </div>
       )
