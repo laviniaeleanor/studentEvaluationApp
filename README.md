@@ -4,7 +4,9 @@ For the final assignment at [Codaisseur](https://codaisseur.com) we had to make 
 to evaluate students.To complete this task we had 4 days and it was an individual project. 
 For my project I built a Student Evaluation tool for Codaisseur teachers, based on the style of the company.
 
-![alt text](https://github.com/laviniaeleanor/studentEvaluationApp/raw/master/ezgif.com-crop.gif "Gif")
+<div style="text-align:center">
+<img width="100%" src="https://github.com/laviniaeleanor/studentEvaluationApp/raw/master/ezgif.com-crop.gif" alt="Gif"/>
+ </div>
 
 # Features
 
