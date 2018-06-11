@@ -1,6 +1,6 @@
 # Student Evaluation App
 
->For the final assignment at [Codaisseur](https://codaisseur.com) we had to make an application that allowed teachers
+For the final assignment at [Codaisseur](https://codaisseur.com) we had to make an application that allowed teachers
 to evaluate students.To complete this task we had 4 days and it was an individual project. 
 For my project I built a Student Evaluation tool for Codaisseur teachers, based on the style of the company.
 
@@ -9,7 +9,6 @@ For my project I built a Student Evaluation tool for Codaisseur teachers, based 
 # Features
 
 This application allows the teacher to do the following:
-___
 
 * Add a class
 * Add a student to the class
@@ -18,21 +17,15 @@ ___
 * Add evaluations for the student
 * Pick a 'random' student from the class to ask a question.
 
-___
-
 To retrieve a 'random' student we were required to write an algorithm which picks a student based on the result of their last evaluation.
 
 # Technologies
-
-___
 
 * React/Redux
 * Typescript
 * TypeORM
 * Material UI
 * Enzyme for testing
-
-___
 
 # Installation & Prerequisites
 For installation & running the app best use: 
