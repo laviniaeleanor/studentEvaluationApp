@@ -1,11 +1,11 @@
 # Student Evaluation App
 
-![alt text](https://github.com/laviniaeleanor/studentEvaluationApp/raw/master/Screenshot.png "Screenshot")
-
-For the final assignment at [Codaisseur](https://codaisseur.com) we had to make an application that allowed teachers
+>For the final assignment at [Codaisseur](https://codaisseur.com) we had to make an application that allowed teachers
 to evaluation students.
-
 To complete this task we had 4 days and it was an individual project.
+
+![alt text](https://github.com/laviniaeleanor/studentEvaluationApp/raw/master/ezgif.com-crop.gif "Gif")
+
 For my final individual assignment with Codassieur Academy I built a Student Evaluation tool for Codaisseur teachers, based on the style of the company. This application allows the teacher to do the following:
 ___
 
