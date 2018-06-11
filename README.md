@@ -19,13 +19,12 @@ This application allows the teacher to do the following:
 * Add evaluations for the student
 * Pick a 'random' student from the class to ask a question.
 
-To retrieve a 'random' student we were required to write an algorithm which picks a student based on the result of their last evaluation.
+To retrieve a 'random' student we were required to write an [algorithm](./client/src/logic/logic.js) which picks a student based on the result of their last evaluation.
 
 # Technologies
 
 * React/Redux
-* Typescript
-* TypeORM
+* Typescript/TypeORM
 * Material UI
 * Enzyme for testing
 
@@ -46,10 +45,4 @@ I'm running a docker container (port 5432) with a Postgres DB. A local DB should
 
 ### Testing: 
 To run testing, run "yarn test" in the frontend folder. 
-
-## 3. Copyright etc.
-
-### Build with:
-* [React](https://reactjs.org/) - The web framework used for frontend
-* [Redux](https://redux.js.org) - State manager for React
-* [TypeOrm](https://github.com/typeorm) - TypeScript focused ORM for the backend.  
+ 
