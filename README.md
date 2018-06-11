@@ -1,12 +1,14 @@
 # Student Evaluation App
 
 >For the final assignment at [Codaisseur](https://codaisseur.com) we had to make an application that allowed teachers
-to evaluation students.
-To complete this task we had 4 days and it was an individual project.
+to evaluate students.To complete this task we had 4 days and it was an individual project. 
+For my project I built a Student Evaluation tool for Codaisseur teachers, based on the style of the company.
 
 ![alt text](https://github.com/laviniaeleanor/studentEvaluationApp/raw/master/ezgif.com-crop.gif "Gif")
 
-For my final individual assignment with Codassieur Academy I built a Student Evaluation tool for Codaisseur teachers, based on the style of the company. This application allows the teacher to do the following:
+# Features
+
+This application allows the teacher to do the following:
 ___
 
 * Add a class
@@ -19,6 +21,18 @@ ___
 ___
 
 To retrieve a 'random' student we were required to write an algorithm which picks a student based on the result of their last evaluation.
+
+# Technologies
+
+___
+
+* React/Redux
+* Typescript
+* TypeORM
+* Material UI
+* Enzyme for testing
+
+___
 
 # Installation & Prerequisites
 For installation & running the app best use: 
@@ -33,6 +47,10 @@ Same as frontend, run "yarn install" for the dependencies. Afterwards run "nodem
 
 ### Database: 
 I'm running a docker container (port 5432) with a Postgres DB. A local DB should work as well.
+
+
+### Testing: 
+To run testing, run "yarn test" in the frontend folder. 
 
 ## 3. Copyright etc.
 
